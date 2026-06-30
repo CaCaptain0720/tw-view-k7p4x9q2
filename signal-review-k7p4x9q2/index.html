@@ -1540,6 +1540,20 @@
       white-space: nowrap;
     }
 
+    .ai-history-pick-metrics span.positive {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .ai-history-pick-metrics span.negative {
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .ai-history-pick-metrics span.neutral {
+      color: var(--muted);
+    }
+
     .ai-history-pending {
       color: var(--muted);
       font-size: 12px;
@@ -1686,6 +1700,21 @@
       font-variant-numeric: tabular-nums;
       line-height: 1.25;
       white-space: nowrap;
+    }
+
+    .ai-pick-selector-metric strong.positive,
+    .ai-pick-detail-metric strong.positive {
+      color: var(--green);
+    }
+
+    .ai-pick-selector-metric strong.negative,
+    .ai-pick-detail-metric strong.negative {
+      color: var(--red);
+    }
+
+    .ai-pick-selector-metric strong.neutral,
+    .ai-pick-detail-metric strong.neutral {
+      color: var(--muted);
     }
 
     .ai-pick-rank,
