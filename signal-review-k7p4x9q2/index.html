@@ -1460,7 +1460,7 @@
 
     .ai-history-table {
       width: 100%;
-      min-width: 820px;
+      min-width: 1040px;
       border-collapse: collapse;
       font-size: 12px;
     }
@@ -1497,11 +1497,59 @@
     }
 
     .ai-history-picks {
-      max-width: 360px;
+      max-width: 300px;
       color: var(--ink);
       font-weight: 850;
       line-height: 1.45;
       overflow-wrap: anywhere;
+    }
+
+    .ai-history-pick-cell {
+      min-width: 190px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .ai-history-pick-cell strong {
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .ai-history-pick-cell span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .ai-history-pick-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .ai-history-pick-metrics span {
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      background: rgba(248, 245, 239, 0.62);
+      padding: 2px 6px;
+      color: var(--ink-soft);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .ai-history-pending {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .ai-history-pending strong,
+    .ai-history-pending span {
+      display: block;
     }
 
     .ai-pick-batch-head {
@@ -1540,45 +1588,79 @@
       text-align: right;
     }
 
-    .ai-pick-grid {
+    .ai-pick-overview {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
       padding: 14px;
+      gap: 12px;
     }
 
-    .ai-pick-card {
+    .ai-pick-overview-table {
       border: 1px solid var(--line-2);
       border-radius: var(--radius-sm);
       background: var(--surface);
-      padding: 14px;
-      display: grid;
-      gap: 12px;
-      min-width: 0;
+      overflow-x: auto;
     }
 
-    .ai-pick-title {
+    .ai-pick-overview-head,
+    .ai-pick-overview-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: 74px minmax(180px, 1.15fr) 84px 92px 92px 92px minmax(116px, 0.8fr) minmax(220px, 1.35fr);
       gap: 10px;
-      align-items: start;
-      min-width: 0;
+      align-items: center;
+      padding: 10px 12px;
+      min-width: 920px;
     }
 
-    .ai-pick-title strong {
-      display: block;
+    .ai-pick-overview-head {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(248, 245, 239, 0.58);
+      border-bottom: 1px solid var(--line-2);
+    }
+
+    .ai-pick-overview-row {
+      appearance: none;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid var(--line-2);
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      text-align: left;
+      transition: background 160ms ease, box-shadow 160ms ease;
+    }
+
+    .ai-pick-overview-row:last-child {
+      border-bottom: 0;
+    }
+
+    .ai-pick-overview-row:hover,
+    .ai-pick-overview-row.active {
+      background: rgba(225, 243, 254, 0.42);
+    }
+
+    .ai-pick-overview-row.active {
+      box-shadow: inset 3px 0 0 var(--blue);
+    }
+
+    .ai-pick-stock strong {
       color: var(--ink);
-      font-size: 16px;
+      display: block;
+      font-size: 14px;
       line-height: 1.35;
       overflow-wrap: anywhere;
     }
 
-    .ai-pick-title span {
-      display: block;
-      margin-top: 3px;
+    .ai-pick-stock span,
+    .ai-pick-brief {
       color: var(--muted);
+      display: block;
       font-size: 12px;
-      font-weight: 750;
+      font-weight: 800;
       line-height: 1.45;
       overflow-wrap: anywhere;
     }
@@ -1603,88 +1685,119 @@
       color: #1f6c9f;
     }
 
-    .ai-pick-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
+    .ai-pick-detail-panel {
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      overflow: hidden;
     }
 
-    .ai-pick-metric {
-      min-width: 0;
+    .ai-pick-detail-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line-2);
+      background: rgba(248, 245, 239, 0.42);
+    }
+
+    .ai-pick-detail-title {
       display: grid;
       gap: 3px;
+      min-width: 0;
     }
 
-    .ai-pick-metric span {
+    .ai-pick-detail-title strong {
+      color: var(--ink);
+      font-size: 17px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .ai-pick-detail-title span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .ai-pick-detail-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .ai-pick-detail-metric {
+      min-width: 86px;
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 253, 248, 0.88);
+      padding: 8px 9px;
+    }
+
+    .ai-pick-detail-metric span {
+      display: block;
       color: var(--muted);
       font-size: 11px;
       font-weight: 850;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
-    .ai-pick-metric strong {
+    .ai-pick-detail-metric strong {
+      display: block;
+      margin-top: 3px;
       color: var(--ink);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 950;
       font-variant-numeric: tabular-nums;
       white-space: nowrap;
     }
 
-    .ai-pick-status-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: center;
+    .ai-pick-detail-body {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
     }
 
-    .ai-pick-status-line span {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
+    .ai-pick-reason-block {
+      max-width: 860px;
     }
 
-    .ai-pick-reason-summary {
-      color: var(--muted);
+    .ai-pick-reason-label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
       font-size: 12px;
-      line-height: 1.55;
+      font-weight: 950;
+      line-height: 1.35;
+    }
+
+    .ai-pick-reason-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
       overflow-wrap: anywhere;
-    }
-
-    .ai-pick-reason-details {
-      border-top: 1px solid var(--line-2);
-      padding-top: 10px;
-    }
-
-    .ai-pick-reason-details summary {
-      cursor: pointer;
-      color: var(--ink-soft);
-      font-size: 12px;
-      font-weight: 900;
-      line-height: 1.4;
-      list-style: none;
-    }
-
-    .ai-pick-reason-details summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .ai-pick-reason-full {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-      overflow-wrap: anywhere;
-    }
-
-    .ai-pick-reason-full p {
-      margin: 0 0 10px;
       white-space: pre-wrap;
     }
 
-    .ai-pick-reason-group {
+    .ai-pick-reason-columns {
       display: grid;
-      gap: 5px;
-      margin-top: 10px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .ai-pick-reason-group {
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: rgba(248, 245, 239, 0.36);
+      display: grid;
+      gap: 7px;
+      margin-top: 0;
+      padding: 11px 12px;
+      min-width: 0;
     }
 
     .ai-pick-reason-group strong {
@@ -1695,7 +1808,10 @@
 
     .ai-pick-reason-group ul {
       margin: 0;
-      padding-left: 17px;
+      padding-left: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
     }
 
     .ai-pick-reason-group li + li {
@@ -1948,7 +2064,7 @@
       .top15-overview-inner,
       .tracker-summary,
       .ai-track-summary,
-      .ai-pick-grid {
+      .ai-pick-reason-columns {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -2018,7 +2134,7 @@
       .detail-grid,
       .tracker-summary,
       .ai-track-summary,
-      .ai-pick-grid,
+      .ai-pick-reason-columns,
       .stock-detail {
         grid-template-columns: 1fr;
       }
@@ -2026,9 +2142,19 @@
       .ai-track-workbench,
       .ai-track-summary,
       .ai-toolbar,
+      .ai-pick-overview,
+      .ai-pick-detail-body,
       .ai-history-panel {
         padding-left: 12px;
         padding-right: 12px;
+      }
+
+      .ai-pick-detail-head {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-pick-detail-metrics {
+        justify-content: flex-start;
       }
 
       .ai-date-rail {
@@ -18043,6 +18169,7 @@
     let currentWeekIndex = Math.max(0, weeks.length - 1);
     let currentFilter = "all";
     let selectedAiBatchRawDate = null;
+    const selectedAiPickKeys = {};
     let currentAiFilter = "all";
     let currentAiSearch = "";
 
@@ -18398,6 +18525,27 @@
       `;
     }
 
+    function aiPickKey(pick) {
+      return String(pick?.pickRank || pick?.code || "");
+    }
+
+    function selectedAiPickFor(item) {
+      const picks = item.picks || [];
+      if (!picks.length) return null;
+      const itemKey = aiItemKey(item);
+      const selectedKey = selectedAiPickKeys[itemKey] || aiPickKey(picks[0]);
+      return picks.find((pick) => aiPickKey(pick) === selectedKey) || picks[0];
+    }
+
+    function renderAiMetric(label, value) {
+      return `
+        <div class="ai-pick-detail-metric">
+          <span>${escapeHtml(label)}</span>
+          <strong class="${hasNumber(value) ? classFor(value) : ""}">${formatMaybePct(value)}</strong>
+        </div>
+      `;
+    }
+
     const aiStatusMeta = {
       completed: { label: "已完成", group: "completed" },
       manual_input_pending_record: { label: "待正式保存", group: "pending" },
@@ -18583,6 +18731,7 @@
 
       const linkedCount = (item.picks || []).filter((pick) => pick.trackingStatus !== "tracking_missing").length;
       const meta = statusMetaFor(item);
+      const activePick = selectedAiPickFor(item);
 
       if (!item.hasCompletedPicks) {
         aiBatchDetail.innerHTML = `
@@ -18602,6 +18751,8 @@
         return;
       }
 
+      const activeKey = aiPickKey(activePick);
+      const reason = activePick.reason || "未提供完整理由。";
       aiBatchDetail.innerHTML = `
         <div class="ai-pick-batch-head">
           <div class="ai-pick-batch-title">
@@ -18610,48 +18761,80 @@
           </div>
           <div class="ai-pick-batch-meta">${item.picks.length} 檔｜已接追蹤 ${linkedCount}/${item.picks.length}</div>
         </div>
-        <div class="ai-pick-grid">
-          ${item.picks.map((pick) => {
-            const reason = pick.reason || "未提供簡短理由。";
-            return `
-            <div class="ai-pick-card">
-              <div class="ai-pick-title">
-                <div>
-                  <strong>[${escapeHtml(pick.code)}] ${escapeHtml(pick.name)}</strong>
-                  <span>${escapeHtml(pick.industry || "未分類")}｜信心 ${escapeHtml(pick.confidence || "-")}</span>
-                </div>
-                <span class="ai-pick-rank">AI #${escapeHtml(pick.pickRank)}</span>
-              </div>
-              <div class="ai-pick-metrics">
-                <div class="ai-pick-metric">
-                  <span>目前漲跌</span>
-                  <strong class="${hasNumber(pick.current) ? classFor(pick.current) : ""}">${formatMaybePct(pick.current)}</strong>
-                </div>
-                <div class="ai-pick-metric">
-                  <span>曾經最高</span>
-                  <strong class="${hasNumber(pick.peak) ? classFor(pick.peak) : ""}">${formatMaybePct(pick.peak)}</strong>
-                </div>
-                <div class="ai-pick-metric">
-                  <span>20D 固定</span>
-                  <strong class="${hasNumber(pick.return20d) ? classFor(pick.return20d) : ""}">${formatMaybePct(pick.return20d)}</strong>
-                </div>
-              </div>
-              <div class="ai-pick-status-line">
-                <span>追蹤狀態</span>
-                <strong class="ai-track-status">${escapeHtml(pick.trackingLabel || pick.trackingStatus || "-")}</strong>
-              </div>
-              <div class="ai-pick-reason-summary">${escapeHtml(shortReason(reason))}</div>
-              <details class="ai-pick-reason-details">
-                <summary>完整理由</summary>
-                <div class="ai-pick-reason-full">
-                  <p>${escapeHtml(reason)}</p>
-                  ${renderAiList("主要證據", pick.keyEvidence)}
-                  ${renderAiList("主要風險", pick.mainRisks)}
-                  ${renderAiList("失效訊號", pick.invalidationSignals)}
-                </div>
-              </details>
+        <div class="ai-pick-overview">
+          <div class="ai-pick-overview-table" role="table" aria-label="${escapeHtml(item.date)} AI picks overview">
+            <div class="ai-pick-overview-head" role="row">
+              <span>排名</span>
+              <span>股票</span>
+              <span>信心</span>
+              <span>目前</span>
+              <span>曾高</span>
+              <span>20D</span>
+              <span>追蹤</span>
+              <span>短理由</span>
             </div>
-          `}).join("")}
+            ${item.picks.map((pick) => `
+              <button class="ai-pick-overview-row ${aiPickKey(pick) === activeKey ? "active" : ""}" type="button" data-ai-pick-key="${escapeHtml(aiPickKey(pick))}" role="row">
+                <span class="ai-pick-rank">AI #${escapeHtml(pick.pickRank)}</span>
+                <span class="ai-pick-stock">
+                  <strong>[${escapeHtml(pick.code)}] ${escapeHtml(pick.name)}</strong>
+                  <span>${escapeHtml(pick.industry || "未分類")}</span>
+                </span>
+                <span>${escapeHtml(pick.confidence || "-")}</span>
+                <strong class="${hasNumber(pick.current) ? classFor(pick.current) : ""}">${formatMaybePct(pick.current)}</strong>
+                <strong class="${hasNumber(pick.peak) ? classFor(pick.peak) : ""}">${formatMaybePct(pick.peak)}</strong>
+                <strong class="${hasNumber(pick.return20d) ? classFor(pick.return20d) : ""}">${formatMaybePct(pick.return20d)}</strong>
+                <span class="ai-track-status">${escapeHtml(pick.trackingLabel || pick.trackingStatus || "-")}</span>
+                <span class="ai-pick-brief">${escapeHtml(shortReason(pick.reason, 82))}</span>
+              </button>
+            `).join("")}
+          </div>
+          <article class="ai-pick-detail-panel">
+            <div class="ai-pick-detail-head">
+              <div class="ai-pick-detail-title">
+                <strong>AI #${escapeHtml(activePick.pickRank)}｜[${escapeHtml(activePick.code)}] ${escapeHtml(activePick.name)}</strong>
+                <span>${escapeHtml(activePick.industry || "未分類")}｜信心 ${escapeHtml(activePick.confidence || "-")}｜${escapeHtml(activePick.trackingLabel || activePick.trackingStatus || "-")}</span>
+              </div>
+              <div class="ai-pick-detail-metrics">
+                ${renderAiMetric("目前漲跌", activePick.current)}
+                ${renderAiMetric("曾經最高", activePick.peak)}
+                ${renderAiMetric("20D 固定", activePick.return20d)}
+              </div>
+            </div>
+            <div class="ai-pick-detail-body">
+              <div class="ai-pick-reason-block">
+                <span class="ai-pick-reason-label">完整理由</span>
+                <p class="ai-pick-reason-text">${escapeHtml(reason)}</p>
+              </div>
+              <div class="ai-pick-reason-columns">
+                ${renderAiList("主要證據", activePick.keyEvidence)}
+                ${renderAiList("主要風險", activePick.mainRisks)}
+                ${renderAiList("失效訊號", activePick.invalidationSignals)}
+              </div>
+            </div>
+          </article>
+        </div>
+      `;
+    }
+
+    function renderAiHistoryPickCell(item, pick, rank) {
+      if (!pick) {
+        return `
+          <div class="ai-history-pending">
+            <strong>AI #${rank}</strong>
+            <span>${escapeHtml(item.pendingSummary || item.statusLabel || "-")}</span>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="ai-history-pick-cell">
+          <strong>#${escapeHtml(pick.pickRank)} ${escapeHtml(pick.code)} ${escapeHtml(pick.name)}</strong>
+          <span>信心 ${escapeHtml(pick.confidence || "-")}</span>
+          <div class="ai-history-pick-metrics">
+            <span class="${hasNumber(pick.current) ? classFor(pick.current) : ""}">目前 ${formatMaybePct(pick.current)}</span>
+            <span class="${hasNumber(pick.peak) ? classFor(pick.peak) : ""}">曾高 ${formatMaybePct(pick.peak)}</span>
+          </div>
         </div>
       `;
     }
@@ -18670,9 +18853,9 @@
             <tr>
               <th>日期</th>
               <th>狀態</th>
-              <th>3 檔 / 流程</th>
-              <th>目前平均</th>
-              <th>最高曾經</th>
+              <th>AI #1</th>
+              <th>AI #2</th>
+              <th>AI #3</th>
               <th>追蹤</th>
             </tr>
           </thead>
@@ -18680,13 +18863,14 @@
             ${items.map((item) => {
               const meta = statusMetaFor(item);
               const key = aiItemKey(item);
+              const picks = item.picks || [];
               return `
                 <tr class="ai-history-row ${key === selectedAiBatchRawDate ? "active" : ""}" data-ai-date="${escapeHtml(key)}">
                   <td><strong>${escapeHtml(item.date)}</strong></td>
                   <td><span class="ai-status-pill ${escapeHtml(meta.group)}">${escapeHtml(item.statusLabel || meta.label)}</span></td>
-                  <td class="ai-history-picks">${escapeHtml(aiPickNameLine(item))}</td>
-                  <td>${hasNumber(item.currentAvg) ? formatPct(item.currentAvg) : "-"}</td>
-                  <td>${hasNumber(item.bestPeak) ? formatPct(item.bestPeak) : "-"}</td>
+                  <td>${renderAiHistoryPickCell(item, picks[0], 1)}</td>
+                  <td>${renderAiHistoryPickCell(item, picks[1], 2)}</td>
+                  <td>${renderAiHistoryPickCell(item, picks[2], 3)}</td>
                   <td>${item.picks.length ? `${item.linkedCount}/${item.picks.length}` : "-"}</td>
                 </tr>
               `;
@@ -18897,6 +19081,14 @@
     if (aiSearchInput) {
       aiSearchInput.addEventListener("input", (event) => {
         currentAiSearch = event.target.value;
+        renderAiPicks();
+      });
+    }
+    if (aiBatchDetail) {
+      aiBatchDetail.addEventListener("click", (event) => {
+        const row = event.target.closest("[data-ai-pick-key]");
+        if (!row || !selectedAiBatchRawDate) return;
+        selectedAiPickKeys[selectedAiBatchRawDate] = row.dataset.aiPickKey;
         renderAiPicks();
       });
     }
