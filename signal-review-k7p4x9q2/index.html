@@ -17828,6 +17828,116 @@
                         "industry": "航運業"
                   }
             ]
+      },
+      {
+            "date": "2026/06/30",
+            "rawDate": "20260630",
+            "model": "manual_input_auto_record",
+            "decisionTime": "2026-06-30T21:44:31+08:00",
+            "picks": [
+                  {
+                        "date": "2026/06/30",
+                        "code": "2618",
+                        "name": "長榮航",
+                        "pickRank": 1,
+                        "confidence": "medium",
+                        "reason": "在不使用未來資料的限制下，2618 具備最強的籌碼集中變化之一，big_delta_4w=5.61、big_delta_8w=6.31，同時 small_delta_4w=-2.45、small_delta_8w=-2.81；價格量能仍為 quiet，volume_ratio_20=0.93、ma5_bias_pct=1.54，尚未被標示為過熱。相較同為航運的 2610，2618 的籌碼變化幅度更大，較符合右尾候選的籌碼壓縮條件。",
+                        "keyEvidence": [
+                              "chip_trend big_delta_4w=5.61、big_delta_8w=6.31。",
+                              "chip_trend small_delta_4w=-2.45、small_delta_8w=-2.81。",
+                              "latest_chip big_holder_ratio=78.83、small_holder_ratio=10.20。",
+                              "price_volume volume_ratio_20=0.93、ma5_bias_pct=1.54、is_price_overheated=False。",
+                              "ranking topN_hit_count=3、consensus_summary=three_version_consensus。"
+                        ],
+                        "mainRisks": [
+                              "foreign_flow 缺 rank_1d 與 rank_30d，外資資料完整性不足。",
+                              "consecutive_top15_signals_asof=14，訊號可能已被長時間反映。",
+                              "航運業 same_industry_top15_count=2，若族群訊號失效會影響判斷。"
+                        ],
+                        "invalidationSignals": [
+                              "後續候選卡若顯示 big_delta_4w 轉負或 small_delta_4w 轉正擴大，代表籌碼壓縮失效。",
+                              "後續 price_volume_stage 若轉為 overheated_volume 且籌碼未同步改善，右尾品質下降。",
+                              "後續 foreign_flow 若由 multi_period_buying 轉為 mixed_or_unclear 或 unknown，資金確認度下降。"
+                        ],
+                        "trackingStatus": "PENDING",
+                        "trackingLabel": "已接 Signal Log 追蹤",
+                        "entry": 44.9,
+                        "latest": 44.9,
+                        "current": 0.0,
+                        "peak": null,
+                        "return20d": null,
+                        "rank": 4,
+                        "industry": "航運業"
+                  },
+                  {
+                        "date": "2026/06/30",
+                        "code": "3374",
+                        "name": "精材",
+                        "pickRank": 2,
+                        "confidence": "medium",
+                        "reason": "3374 的籌碼變化在 Top15 中非常突出，big_delta_4w=5.50、big_delta_8w=4.83，small_delta_4w=-4.58、small_delta_8w=-4.14，代表大戶增加與小戶下降同步發生；同時 price_volume_stage=quiet，volume_ratio_20=0.65、volume_percentile_60=28.33，尚未出現成交量過熱。雖然外資為 mixed_or_unclear，但就右尾候選實驗而言，這種低量安靜且籌碼快速集中的結構值得納入。",
+                        "keyEvidence": [
+                              "chip_trend big_delta_4w=5.50、big_delta_8w=4.83。",
+                              "chip_trend small_delta_4w=-4.58、small_delta_8w=-4.14。",
+                              "price_volume volume_ratio_20=0.65、volume_percentile_60=28.33、is_price_overheated=False。",
+                              "ranking topN_hit_count=3、consensus_summary=three_version_consensus。",
+                              "theme_context same_industry_top15_count=4。"
+                        ],
+                        "mainRisks": [
+                              "foreign_flow_type=mixed_or_unclear，rank_1d 與 rank_5d 缺值。",
+                              "ma5_bias_pct=-1.92，價格尚未呈現短線強勢。",
+                              "small_holder_ratio=25.83 絕對值仍不低，雖然下降幅度大。"
+                        ],
+                        "invalidationSignals": [
+                              "後續若 big_delta_4w 快速收斂或 small_delta_4w 不再下降，籌碼主因失效。",
+                              "後續若仍維持低量但價格無法改善，可能只是低量整理而非右尾前段。",
+                              "後續外資欄位若持續 missing 或轉弱，需降低資金面評分。"
+                        ],
+                        "trackingStatus": "PENDING",
+                        "trackingLabel": "已接 Signal Log 追蹤",
+                        "entry": 286.5,
+                        "latest": 286.5,
+                        "current": 0.0,
+                        "peak": null,
+                        "return20d": null,
+                        "rank": 10,
+                        "industry": "半導體"
+                  },
+                  {
+                        "date": "2026/06/30",
+                        "code": "2610",
+                        "name": "華航",
+                        "pickRank": 3,
+                        "confidence": "medium",
+                        "reason": "2610 兼具外資跨週期買超與明確籌碼累積。foreign_flow rank_5d=2、rank_10d=6、rank_30d=7，buy_5d=104460、buy_10d=171355、buy_30d=220841；籌碼上 big_delta_4w=4.69、big_delta_8w=4.88，small_delta_4w=-1.78、small_delta_8w=-1.99。價格量能為 quiet，ma5_bias_pct=0.89、volume_ratio_20=1.06，未被標示為過熱，因此列為第三順位。",
+                        "keyEvidence": [
+                              "foreign_flow rank_5d=2、rank_10d=6、rank_30d=7。",
+                              "foreign_flow buy_5d=104460、buy_10d=171355、buy_30d=220841。",
+                              "chip_trend big_delta_4w=4.69、big_delta_8w=4.88。",
+                              "chip_trend small_delta_4w=-1.78、small_delta_8w=-1.99。",
+                              "price_volume ma5_bias_pct=0.89、volume_ratio_20=1.06、is_price_overheated=False。"
+                        ],
+                        "mainRisks": [
+                              "consecutive_top15_signals_asof=11，訊號已延續一段時間。",
+                              "volume_percentile_60=88.33，成交分位偏高，距離過熱狀態較近。",
+                              "foreign_flow rank_1d missing，無法確認最近一日是否延續。"
+                        ],
+                        "invalidationSignals": [
+                              "後續若 foreign_flow 5d 或 10d 排名消失，跨週期外資主因失效。",
+                              "後續若 volume_status 轉為 overheated_volume 且 ma5_bias_pct 擴大，右尾候選品質下降。",
+                              "後續若 big_delta_4w 轉弱且 small_delta_4w 不再下降，籌碼壓縮失效。"
+                        ],
+                        "trackingStatus": "PENDING",
+                        "trackingLabel": "已接 Signal Log 追蹤",
+                        "entry": 23.7,
+                        "latest": 23.7,
+                        "current": 0.0,
+                        "peak": null,
+                        "return20d": null,
+                        "rank": 2,
+                        "industry": "航運業"
+                  }
+            ]
       }
 ];
 
@@ -17880,20 +17990,20 @@
             "hasCandidateCard": true,
             "hasPrompt": true,
             "hasManualInput": true,
-            "hasRawDecision": false,
-            "hasParsedDecision": false,
+            "hasRawDecision": true,
+            "hasParsedDecision": true,
             "candidateCardFile": "20260630_top15_ai_v1_candidate_card.json",
             "promptFile": "20260630_top15_ai_v1_prompt.md",
             "manualInputFile": "20260630_top15_ai_v1_manual_raw_input.md",
-            "rawDecisionFile": "",
-            "parsedDecisionFile": "",
-            "recordStatus": "",
+            "rawDecisionFile": "20260630_top15_ai_v1_raw_decision.md",
+            "parsedDecisionFile": "20260630_top15_ai_v1_parsed_decision.json",
+            "recordStatus": "valid_pending_validation",
             "parseError": "",
-            "modelName": "",
-            "decisionTime": "",
-            "status": "manual_input_pending_record",
-            "statusLabel": "待正式保存",
-            "statusGroup": "pending"
+            "modelName": "manual_input_auto_record",
+            "decisionTime": "2026-06-30T21:44:31+08:00",
+            "status": "completed",
+            "statusLabel": "已完成",
+            "statusGroup": "completed"
       }
 ];
 
