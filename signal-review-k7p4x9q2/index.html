@@ -1807,6 +1807,60 @@
       white-space: nowrap;
     }
 
+    .ai-return-breakdown {
+      border-top: 1px solid var(--line-2);
+      display: grid;
+      gap: 8px;
+      padding-top: 12px;
+    }
+
+    .ai-return-row {
+      display: grid;
+      grid-template-columns: minmax(112px, 0.42fr) minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: rgba(248, 245, 239, 0.30);
+      padding: 9px 10px;
+    }
+
+    .ai-return-row.active {
+      background: rgba(225, 243, 254, 0.48);
+      border-color: #c4ddec;
+    }
+
+    .ai-return-row strong {
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1.35;
+    }
+
+    .ai-return-formula {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
+    }
+
+    .ai-return-value {
+      font-size: 14px;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .ai-return-note {
+      margin: 2px 0 0;
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 750;
+      line-height: 1.45;
+      grid-column: 2 / -1;
+    }
+
     .ai-pick-detail-body {
       display: grid;
       gap: 12px;
@@ -2209,6 +2263,14 @@
 
       .ai-pick-selector-grid {
         grid-template-columns: 1fr;
+      }
+
+      .ai-return-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-return-note {
+        grid-column: auto;
       }
 
       .ai-track-workbench,
@@ -17841,7 +17903,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 124.0,
                         "latest": 119.0,
-                        "current": -4.03,
+                        "latestDate": "2026/06/30",
+                        "latestPrice": 119.0,
+                        "current": -4.8,
+                        "currentBasis": "buyable",
+                        "signalDate": "2026/06/26",
+                        "signalEntryPrice": 124.0,
+                        "signalReturn": -4.03,
+                        "nextOpenDate": "2026/06/29",
+                        "nextOpenPrice": 125.0,
+                        "nextOpenReturn": -4.8,
+                        "buyableDate": "2026/06/29",
+                        "buyablePrice": 125.0,
+                        "buyableReturn": -4.8,
+                        "buyableStatus": "BUYABLE_D1",
+                        "buyableNote": "D+1 開盤可作為可成交近似起算價",
                         "peak": -4.03,
                         "return20d": null,
                         "rank": 10,
@@ -17875,7 +17951,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 40.95,
                         "latest": 39.2,
-                        "current": -4.27,
+                        "latestDate": "2026/06/30",
+                        "latestPrice": 39.2,
+                        "current": -3.92,
+                        "currentBasis": "buyable",
+                        "signalDate": "2026/06/26",
+                        "signalEntryPrice": 40.95,
+                        "signalReturn": -4.27,
+                        "nextOpenDate": "2026/06/29",
+                        "nextOpenPrice": 40.8,
+                        "nextOpenReturn": -3.92,
+                        "buyableDate": "2026/06/29",
+                        "buyablePrice": 40.8,
+                        "buyableReturn": -3.92,
+                        "buyableStatus": "BUYABLE_D1",
+                        "buyableNote": "D+1 開盤可作為可成交近似起算價",
                         "peak": -4.27,
                         "return20d": null,
                         "rank": 11,
@@ -17909,7 +17999,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 100.0,
                         "latest": 99.0,
-                        "current": -1.0,
+                        "latestDate": "2026/06/30",
+                        "latestPrice": 99.0,
+                        "current": -4.35,
+                        "currentBasis": "buyable",
+                        "signalDate": "2026/06/26",
+                        "signalEntryPrice": 100.0,
+                        "signalReturn": -1.0,
+                        "nextOpenDate": "2026/06/29",
+                        "nextOpenPrice": 103.5,
+                        "nextOpenReturn": -4.35,
+                        "buyableDate": "2026/06/29",
+                        "buyablePrice": 103.5,
+                        "buyableReturn": -4.35,
+                        "buyableStatus": "BUYABLE_D1",
+                        "buyableNote": "D+1 開盤可作為可成交近似起算價",
                         "peak": -1.0,
                         "return20d": null,
                         "rank": 15,
@@ -17951,7 +18055,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 64.7,
                         "latest": 71.1,
-                        "current": 9.89,
+                        "latestDate": "2026/06/30",
+                        "latestPrice": 71.1,
+                        "current": 6.76,
+                        "currentBasis": "buyable",
+                        "signalDate": "2026/06/29",
+                        "signalEntryPrice": 64.7,
+                        "signalReturn": 9.89,
+                        "nextOpenDate": "2026/06/30",
+                        "nextOpenPrice": 66.6,
+                        "nextOpenReturn": 6.76,
+                        "buyableDate": "2026/06/30",
+                        "buyablePrice": 66.6,
+                        "buyableReturn": 6.76,
+                        "buyableStatus": "BUYABLE_D1",
+                        "buyableNote": "D+1 開盤可作為可成交近似起算價",
                         "peak": 9.89,
                         "return20d": null,
                         "rank": 6,
@@ -17985,7 +18103,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 344.0,
                         "latest": 370.5,
-                        "current": 7.7,
+                        "latestDate": "2026/06/30",
+                        "latestPrice": 370.5,
+                        "current": 3.64,
+                        "currentBasis": "buyable",
+                        "signalDate": "2026/06/29",
+                        "signalEntryPrice": 344.0,
+                        "signalReturn": 7.7,
+                        "nextOpenDate": "2026/06/30",
+                        "nextOpenPrice": 357.5,
+                        "nextOpenReturn": 3.64,
+                        "buyableDate": "2026/06/30",
+                        "buyablePrice": 357.5,
+                        "buyableReturn": 3.64,
+                        "buyableStatus": "BUYABLE_D1",
+                        "buyableNote": "D+1 開盤可作為可成交近似起算價",
                         "peak": 7.7,
                         "return20d": null,
                         "rank": 7,
@@ -18019,7 +18151,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 43.9,
                         "latest": 44.9,
-                        "current": 2.28,
+                        "latestDate": "2026/06/30",
+                        "latestPrice": 44.9,
+                        "current": 1.81,
+                        "currentBasis": "buyable",
+                        "signalDate": "2026/06/29",
+                        "signalEntryPrice": 43.9,
+                        "signalReturn": 2.28,
+                        "nextOpenDate": "2026/06/30",
+                        "nextOpenPrice": 44.1,
+                        "nextOpenReturn": 1.81,
+                        "buyableDate": "2026/06/30",
+                        "buyablePrice": 44.1,
+                        "buyableReturn": 1.81,
+                        "buyableStatus": "BUYABLE_D1",
+                        "buyableNote": "D+1 開盤可作為可成交近似起算價",
                         "peak": 2.28,
                         "return20d": null,
                         "rank": 3,
@@ -18061,7 +18207,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 44.9,
                         "latest": 44.9,
+                        "latestDate": "",
+                        "latestPrice": 44.9,
                         "current": 0.0,
+                        "currentBasis": "signal",
+                        "signalDate": "2026/06/30",
+                        "signalEntryPrice": 44.9,
+                        "signalReturn": 0.0,
+                        "nextOpenDate": "",
+                        "nextOpenPrice": null,
+                        "nextOpenReturn": null,
+                        "buyableDate": "",
+                        "buyablePrice": null,
+                        "buyableReturn": null,
+                        "buyableStatus": "WAITING_NEXT_OPEN",
+                        "buyableNote": "尚未有 D+1 交易日資料",
                         "peak": null,
                         "return20d": null,
                         "rank": 4,
@@ -18095,7 +18255,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 286.5,
                         "latest": 286.5,
+                        "latestDate": "",
+                        "latestPrice": 286.5,
                         "current": 0.0,
+                        "currentBasis": "signal",
+                        "signalDate": "2026/06/30",
+                        "signalEntryPrice": 286.5,
+                        "signalReturn": 0.0,
+                        "nextOpenDate": "",
+                        "nextOpenPrice": null,
+                        "nextOpenReturn": null,
+                        "buyableDate": "",
+                        "buyablePrice": null,
+                        "buyableReturn": null,
+                        "buyableStatus": "WAITING_NEXT_OPEN",
+                        "buyableNote": "尚未有 D+1 交易日資料",
                         "peak": null,
                         "return20d": null,
                         "rank": 10,
@@ -18129,7 +18303,21 @@
                         "trackingLabel": "已接 Signal Log 追蹤",
                         "entry": 23.7,
                         "latest": 23.7,
+                        "latestDate": "",
+                        "latestPrice": 23.7,
                         "current": 0.0,
+                        "currentBasis": "signal",
+                        "signalDate": "2026/06/30",
+                        "signalEntryPrice": 23.7,
+                        "signalReturn": 0.0,
+                        "nextOpenDate": "",
+                        "nextOpenPrice": null,
+                        "nextOpenReturn": null,
+                        "buyableDate": "",
+                        "buyablePrice": null,
+                        "buyableReturn": null,
+                        "buyableStatus": "WAITING_NEXT_OPEN",
+                        "buyableNote": "尚未有 D+1 交易日資料",
                         "peak": null,
                         "return20d": null,
                         "rank": 2,
@@ -18613,6 +18801,82 @@
       `;
     }
 
+    function aiReturnBasisShortLabel(basis) {
+      return {
+        buyable: "可成交",
+        next_open: "隔日",
+        signal: "訊號"
+      }[basis] || "可成交";
+    }
+
+    function aiReturnBasisLongLabel(basis) {
+      return {
+        buyable: "可成交近似",
+        next_open: "隔日開盤",
+        signal: "訊號基準"
+      }[basis] || "可成交近似";
+    }
+
+    function renderAiReturnRow({ basis, activeBasis, label, startDate, startPrice, endDate, endPrice, value, note }) {
+      const isActive = basis === activeBasis;
+      const formula = `${startDate || "-"} ${formatMaybePrice(startPrice)} -> ${endDate || "-"} ${formatMaybePrice(endPrice)}`;
+      return `
+        <div class="ai-return-row ${isActive ? "active" : ""}">
+          <strong>${escapeHtml(label)}${isActive ? "（主顯示）" : ""}</strong>
+          <span class="ai-return-formula">${escapeHtml(formula)}</span>
+          <span class="ai-return-value ${hasNumber(value) ? classFor(value) : ""}">${formatMaybePct(value)}</span>
+          ${note ? `<p class="ai-return-note">${escapeHtml(note)}</p>` : ""}
+        </div>
+      `;
+    }
+
+    function renderAiReturnBreakdown(pick) {
+      if (!pick) return "";
+      const latestDate = pick.latestDate || "-";
+      const latestPrice = pick.latestPrice ?? pick.latest;
+      const activeBasis = pick.currentBasis || "buyable";
+      const signalNote = "研究口徑：最新收盤相對 AI 鎖定當天訊號基準價。";
+      const buyableNote = pick.buyableNote || pick.buyableStatus || "從 D+1 起第一個可成交近似開盤價起算。";
+      return `
+        <div class="ai-return-breakdown" aria-label="AI pick return basis">
+          <span class="ai-pick-reason-label">報酬拆解</span>
+          ${renderAiReturnRow({
+            basis: "buyable",
+            activeBasis,
+            label: "可成交近似",
+            startDate: pick.buyableDate,
+            startPrice: pick.buyablePrice,
+            endDate: latestDate,
+            endPrice: latestPrice,
+            value: pick.buyableReturn,
+            note: buyableNote
+          })}
+          ${renderAiReturnRow({
+            basis: "next_open",
+            activeBasis,
+            label: "隔日開盤",
+            startDate: pick.nextOpenDate,
+            startPrice: pick.nextOpenPrice,
+            endDate: latestDate,
+            endPrice: latestPrice,
+            value: pick.nextOpenReturn,
+            note: "從訊號後第一個交易日開盤起算。"
+          })}
+          ${renderAiReturnRow({
+            basis: "signal",
+            activeBasis,
+            label: "訊號基準",
+            startDate: pick.signalDate,
+            startPrice: pick.signalEntryPrice ?? pick.entry,
+            endDate: latestDate,
+            endPrice: latestPrice,
+            value: pick.signalReturn,
+            note: signalNote
+          })}
+        </div>
+      `;
+    }
+
     const aiStatusMeta = {
       completed: { label: "已完成", group: "completed" },
       manual_input_pending_record: { label: "待正式保存", group: "pending" },
@@ -18724,9 +18988,9 @@
         { label: "待處理日期", value: `${pendingCount} 天` },
         { label: "累積 AI picks", value: `${picks.length} 檔` },
         { label: "已接 Signal Log", value: `${linkedCount}/${picks.length}` },
-        { label: "最高曾經漲幅", value: peakValues.length ? formatPct(Math.max(...peakValues)) : "-" },
-        { label: "目前平均漲跌", value: currentValues.length ? formatPct(avg(currentValues)) : "-" },
-        { label: "目前正報酬", value: `${currentValues.filter((value) => value > 0).length}/${currentValues.length || picks.length}` }
+        { label: "最高訊號曾高", value: peakValues.length ? formatPct(Math.max(...peakValues)) : "-" },
+        { label: "可成交平均漲跌", value: currentValues.length ? formatPct(avg(currentValues)) : "-" },
+        { label: "可成交正報酬", value: `${currentValues.filter((value) => value > 0).length}/${currentValues.length || picks.length}` }
       ].map((item) => `
         <div class="ai-summary-stat">
           <span>${escapeHtml(item.label)}</span>
@@ -18845,11 +19109,11 @@
                 </span>
                 <span class="ai-pick-selector-metrics">
                   <span class="ai-pick-selector-metric">
-                    <span>目前</span>
+                    <span>${escapeHtml(aiReturnBasisShortLabel(pick.currentBasis))}</span>
                     <strong class="${hasNumber(pick.current) ? classFor(pick.current) : ""}">${formatMaybePct(pick.current)}</strong>
                   </span>
                   <span class="ai-pick-selector-metric">
-                    <span>曾高</span>
+                    <span>訊號曾高</span>
                     <strong class="${hasNumber(pick.peak) ? classFor(pick.peak) : ""}">${formatMaybePct(pick.peak)}</strong>
                   </span>
                   <span class="ai-pick-selector-metric">
@@ -18867,12 +19131,13 @@
                 <span>${escapeHtml(activePick.industry || "未分類")}｜信心 ${escapeHtml(activePick.confidence || "-")}｜${escapeHtml(activePick.trackingLabel || activePick.trackingStatus || "-")}</span>
               </div>
               <div class="ai-pick-detail-metrics">
-                ${renderAiMetric("目前漲跌", activePick.current)}
-                ${renderAiMetric("曾經最高", activePick.peak)}
+                ${renderAiMetric(aiReturnBasisLongLabel(activePick.currentBasis), activePick.current)}
+                ${renderAiMetric("訊號曾高", activePick.peak)}
                 ${renderAiMetric("20D 固定", activePick.return20d)}
               </div>
             </div>
             <div class="ai-pick-detail-body">
+              ${renderAiReturnBreakdown(activePick)}
               <div class="ai-pick-reason-block">
                 <span class="ai-pick-reason-label">完整理由</span>
                 <p class="ai-pick-reason-text">${escapeHtml(reason)}</p>
@@ -18903,8 +19168,8 @@
           <strong>#${escapeHtml(pick.pickRank)} ${escapeHtml(pick.code)} ${escapeHtml(pick.name)}</strong>
           <span>信心 ${escapeHtml(pick.confidence || "-")}</span>
           <div class="ai-history-pick-metrics">
-            <span class="${hasNumber(pick.current) ? classFor(pick.current) : ""}">目前 ${formatMaybePct(pick.current)}</span>
-            <span class="${hasNumber(pick.peak) ? classFor(pick.peak) : ""}">曾高 ${formatMaybePct(pick.peak)}</span>
+            <span class="${hasNumber(pick.current) ? classFor(pick.current) : ""}">${escapeHtml(aiReturnBasisShortLabel(pick.currentBasis))} ${formatMaybePct(pick.current)}</span>
+            <span class="${hasNumber(pick.peak) ? classFor(pick.peak) : ""}">訊號曾高 ${formatMaybePct(pick.peak)}</span>
           </div>
         </div>
       `;
