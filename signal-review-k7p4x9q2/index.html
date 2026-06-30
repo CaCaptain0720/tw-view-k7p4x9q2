@@ -1144,6 +1144,60 @@
       padding: 9px 11px;
     }
 
+    .ai-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+      gap: 12px;
+      align-items: end;
+      padding: 16px 18px 0;
+    }
+
+    .ai-status-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ai-filter-btn {
+      appearance: none;
+      min-height: 34px;
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink-soft);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 7px 11px;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .ai-filter-btn:hover,
+    .ai-filter-btn.active {
+      border-color: #bfd3e9;
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .ai-search-input {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      outline: none;
+      padding: 8px 11px;
+    }
+
+    .ai-search-input:focus {
+      border-color: #a9c7e4;
+      box-shadow: 0 0 0 3px rgba(55, 121, 166, 0.12);
+    }
+
     .ai-track-summary {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1242,6 +1296,14 @@
       box-shadow: inset 3px 0 0 var(--blue);
     }
 
+    .ai-date-button[data-status-group="pending"].active {
+      box-shadow: inset 3px 0 0 var(--amber);
+    }
+
+    .ai-date-button[data-status-group="issue"].active {
+      box-shadow: inset 3px 0 0 var(--red);
+    }
+
     .ai-date-row {
       display: flex;
       justify-content: space-between;
@@ -1284,11 +1346,162 @@
       white-space: nowrap;
     }
 
+    .ai-status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      min-height: 24px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: #eef1f4;
+      color: #526171;
+      font-size: 11px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .ai-status-pill.completed {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .ai-status-pill.pending {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .ai-status-pill.issue {
+      background: var(--red-soft);
+      color: var(--red);
+    }
+
     .ai-batch-detail {
       border: 1px solid var(--line-2);
       border-radius: var(--radius-sm);
       background: rgba(248, 245, 239, 0.3);
       overflow: hidden;
+    }
+
+    .ai-pending-panel {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+    }
+
+    .ai-pending-copy {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .ai-checklist {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ai-check-row {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.6fr) minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      padding: 10px 12px;
+    }
+
+    .ai-check-row strong {
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .ai-check-row span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .ai-history-panel {
+      border-top: 1px solid var(--line-2);
+      padding: 16px 18px 18px;
+    }
+
+    .ai-history-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .ai-history-head h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .ai-history-head span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .ai-history-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line-2);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+    }
+
+    .ai-history-table {
+      width: 100%;
+      min-width: 820px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .ai-history-table th,
+    .ai-history-table td {
+      border-bottom: 1px solid var(--line-2);
+      padding: 10px 11px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .ai-history-table th {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(248, 245, 239, 0.55);
+    }
+
+    .ai-history-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .ai-history-row {
+      cursor: pointer;
+      transition: background 160ms ease;
+    }
+
+    .ai-history-row:hover,
+    .ai-history-row.active {
+      background: rgba(225, 243, 254, 0.42);
+    }
+
+    .ai-history-picks {
+      max-width: 360px;
+      color: var(--ink);
+      font-weight: 850;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
     }
 
     .ai-pick-batch-head {
@@ -1695,6 +1908,7 @@
       .topbar,
       .readout-grid,
       .tracker-controls,
+      .ai-toolbar,
       .ai-track-intro,
       .ai-track-workbench {
         grid-template-columns: 1fr;
@@ -1810,13 +2024,24 @@
       }
 
       .ai-track-workbench,
-      .ai-track-summary {
+      .ai-track-summary,
+      .ai-toolbar,
+      .ai-history-panel {
         padding-left: 12px;
         padding-right: 12px;
       }
 
       .ai-date-rail {
         max-height: 280px;
+      }
+
+      .ai-check-row {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-history-head {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .metric-item {
@@ -2084,11 +2309,20 @@
             <div>
               <div class="section-kicker">top15_ai_v1</div>
               <h2>AI 追蹤</h2>
-              <p>每天已鎖定的 3 檔 AI picks，表現沿用 Signal Log 追蹤資料。這裡只呈現已保存決策與後續追蹤，不代表策略已驗證。</p>
+              <p>每天 AI 流程的操作狀態與已鎖定 picks 都集中在這裡；正式績效只認已保存的 valid decision。</p>
             </div>
-            <div class="ai-track-note">左側保留每日紀錄索引；點日期即可切換當天 3 檔，不需要一路往下滑。</div>
+            <div class="ai-track-note">先看狀態列確認今天做到哪一步，再用日期索引或歷史表切換紀錄。</div>
           </div>
           <div class="ai-track-summary" id="aiTrackSummary"></div>
+          <div class="ai-toolbar">
+            <div class="ai-status-filters" id="aiStatusFilters" aria-label="AI 狀態篩選">
+              <button class="ai-filter-btn active" type="button" data-ai-filter="all">全部</button>
+              <button class="ai-filter-btn" type="button" data-ai-filter="completed">已完成</button>
+              <button class="ai-filter-btn" type="button" data-ai-filter="pending">待處理</button>
+              <button class="ai-filter-btn" type="button" data-ai-filter="issue">異常</button>
+            </div>
+            <input class="ai-search-input" id="aiSearchInput" type="search" placeholder="搜尋日期、股票、檔名" aria-label="搜尋 AI 追蹤紀錄">
+          </div>
           <div class="ai-track-workbench">
             <aside class="ai-date-rail" aria-label="AI 決策日期清單">
               <div class="ai-date-rail-head">
@@ -2099,6 +2333,13 @@
             </aside>
             <section class="ai-batch-detail" id="aiBatchDetail" aria-label="AI 單日詳情"></section>
           </div>
+          <section class="ai-history-panel" aria-label="AI 歷史表">
+            <div class="ai-history-head">
+              <h3>AI 歷史表</h3>
+              <span>一列一個 signal date，適合累積一個月後快速掃描</span>
+            </div>
+            <div class="ai-history-table-wrap" id="aiHistoryTable"></div>
+          </section>
         </section>
       </section>
     </main>
@@ -17590,6 +17831,72 @@
       }
 ];
 
+    const aiWorkflow = [
+      {
+            "rawDate": "20260626",
+            "date": "2026/06/26",
+            "hasCandidateCard": true,
+            "hasPrompt": true,
+            "hasManualInput": false,
+            "hasRawDecision": true,
+            "hasParsedDecision": true,
+            "candidateCardFile": "20260626_top15_ai_v1_candidate_card.json",
+            "promptFile": "20260626_top15_ai_v1_prompt.md",
+            "manualInputFile": "",
+            "rawDecisionFile": "20260626_top15_ai_v1_raw_decision.md",
+            "parsedDecisionFile": "20260626_top15_ai_v1_parsed_decision.json",
+            "recordStatus": "valid_pending_validation",
+            "parseError": "",
+            "modelName": "GPT-5.5 Thinking",
+            "decisionTime": "2026-06-28T23:36:04+08:00",
+            "status": "completed",
+            "statusLabel": "已完成",
+            "statusGroup": "completed"
+      },
+      {
+            "rawDate": "20260629",
+            "date": "2026/06/29",
+            "hasCandidateCard": true,
+            "hasPrompt": true,
+            "hasManualInput": true,
+            "hasRawDecision": true,
+            "hasParsedDecision": true,
+            "candidateCardFile": "20260629_top15_ai_v1_candidate_card.json",
+            "promptFile": "20260629_top15_ai_v1_prompt.md",
+            "manualInputFile": "20260629_top15_ai_v1_manual_raw_input_r2.md",
+            "rawDecisionFile": "20260629_top15_ai_v1_raw_decision.md",
+            "parsedDecisionFile": "20260629_top15_ai_v1_parsed_decision.json",
+            "recordStatus": "valid_pending_validation",
+            "parseError": "",
+            "modelName": "GPT-5.5 Thinking",
+            "decisionTime": "2026-06-29T22:04:58+08:00",
+            "status": "completed",
+            "statusLabel": "已完成",
+            "statusGroup": "completed"
+      },
+      {
+            "rawDate": "20260630",
+            "date": "2026/06/30",
+            "hasCandidateCard": true,
+            "hasPrompt": true,
+            "hasManualInput": true,
+            "hasRawDecision": false,
+            "hasParsedDecision": false,
+            "candidateCardFile": "20260630_top15_ai_v1_candidate_card.json",
+            "promptFile": "20260630_top15_ai_v1_prompt.md",
+            "manualInputFile": "20260630_top15_ai_v1_manual_raw_input.md",
+            "rawDecisionFile": "",
+            "parsedDecisionFile": "",
+            "recordStatus": "",
+            "parseError": "",
+            "modelName": "",
+            "decisionTime": "",
+            "status": "manual_input_pending_record",
+            "statusLabel": "待正式保存",
+            "statusGroup": "pending"
+      }
+];
+
     const hasNumber = (value) => value !== null && value !== undefined && Number.isFinite(Number(value));
     const formatPct = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(1)}%`;
     const formatMaybePct = (value) => hasNumber(value) ? formatPct(Number(value)) : "-";
@@ -17626,6 +17933,8 @@
     let currentWeekIndex = Math.max(0, weeks.length - 1);
     let currentFilter = "all";
     let selectedAiBatchRawDate = null;
+    let currentAiFilter = "all";
+    let currentAiSearch = "";
 
     const weekSelect = document.querySelector("#weekSelect");
     const top15ReturnOverview = document.querySelector("#top15ReturnOverview");
@@ -17640,6 +17949,9 @@
     const aiDateCount = document.querySelector("#aiDateCount");
     const aiDateList = document.querySelector("#aiDateList");
     const aiBatchDetail = document.querySelector("#aiBatchDetail");
+    const aiStatusFilters = document.querySelector("#aiStatusFilters");
+    const aiSearchInput = document.querySelector("#aiSearchInput");
+    const aiHistoryTable = document.querySelector("#aiHistoryTable");
     const sortSelect = document.querySelector("#sortSelect");
     const stockSearch = document.querySelector("#stockSearch");
 
@@ -17976,37 +18288,120 @@
       `;
     }
 
-    function orderedAiBatches() {
-      return [...aiPicks].sort((a, b) => String(b.rawDate || b.date).localeCompare(String(a.rawDate || a.date)));
+    const aiStatusMeta = {
+      completed: { label: "已完成", group: "completed" },
+      manual_input_pending_record: { label: "待正式保存", group: "pending" },
+      raw_pending_check: { label: "raw 待檢查", group: "pending" },
+      prompt_ready: { label: "prompt 已產生", group: "pending" },
+      candidate_card_ready: { label: "候選卡已產生", group: "pending" },
+      invalid_or_parse_failed: { label: "需檢查", group: "issue" },
+      missing_artifacts: { label: "尚未產生", group: "missing" }
+    };
+
+    function aiItemKey(item) {
+      return String(item.rawDate || item.date || "");
     }
 
-    function aiBatchKey(batch) {
-      return String(batch.rawDate || batch.date || "");
+    function statusMetaFor(item) {
+      return aiStatusMeta[item.status] || { label: item.statusLabel || "未知", group: item.statusGroup || "missing" };
     }
 
-    function aiPickNameLine(batch) {
-      return batch.picks.map((pick) => `${pick.pickRank || "-"}.${pick.name || pick.code}`).join(" / ");
+    function aiPickNameLine(item) {
+      const picks = item.picks || [];
+      if (!picks.length) return item.pendingSummary || item.statusLabel || "-";
+      return picks.map((pick) => `${pick.pickRank || "-"}.${pick.name || pick.code}`).join(" / ");
     }
 
-    function renderAiTrackSummary(batches) {
+    function buildAiItems() {
+      const completedByDate = new Map(aiPicks.map((batch) => [String(batch.rawDate || batch.date || ""), batch]));
+      const workflowByDate = new Map(aiWorkflow.map((item) => [String(item.rawDate || item.date || ""), item]));
+      const keys = new Set([...completedByDate.keys(), ...workflowByDate.keys()]);
+
+      return [...keys].map((key) => {
+        const workflow = workflowByDate.get(key) || {};
+        const batch = completedByDate.get(key);
+        const status = workflow.status || (batch ? "completed" : "missing_artifacts");
+        const meta = statusMetaFor({ ...workflow, status });
+        const picks = batch?.picks || [];
+
+        return {
+          ...workflow,
+          rawDate: key,
+          date: workflow.date || batch?.date || key,
+          model: batch?.model || workflow.modelName || "manual",
+          decisionTime: batch?.decisionTime || workflow.decisionTime || "",
+          status,
+          statusLabel: workflow.statusLabel || meta.label,
+          statusGroup: workflow.statusGroup || meta.group,
+          picks,
+          hasCompletedPicks: Boolean(batch && picks.length),
+          currentAvg: picks.length ? avg(picks.map((pick) => pick.current).filter(hasNumber).map(Number)) : null,
+          bestPeak: picks.length ? Math.max(...picks.map((pick) => pick.peak).filter(hasNumber).map(Number)) : null,
+          linkedCount: picks.length
+            ? picks.filter((pick) => pick.trackingStatus !== "tracking_missing").length
+            : 0,
+          pendingSummary: [
+            workflow.hasCandidateCard ? "候選卡" : "",
+            workflow.hasPrompt ? "prompt" : "",
+            workflow.hasManualInput ? "manual input" : "",
+            workflow.hasRawDecision ? "raw" : "",
+            workflow.hasParsedDecision ? "parsed" : ""
+          ].filter(Boolean).join(" / ") || "尚未開始"
+        };
+      }).sort((a, b) => aiItemKey(b).localeCompare(aiItemKey(a)));
+    }
+
+    function filterAiItems(items) {
+      const query = currentAiSearch.trim().toLowerCase();
+
+      return items.filter((item) => {
+        const group = item.statusGroup || statusMetaFor(item).group;
+        const matchesFilter =
+          currentAiFilter === "all" ||
+          group === currentAiFilter ||
+          (currentAiFilter === "pending" && group === "missing") ||
+          item.status === currentAiFilter;
+        const haystack = [
+          item.rawDate,
+          item.date,
+          item.statusLabel,
+          item.pendingSummary,
+          item.candidateCardFile,
+          item.promptFile,
+          item.manualInputFile,
+          item.rawDecisionFile,
+          item.parsedDecisionFile,
+          ...(item.picks || []).flatMap((pick) => [pick.code, pick.name, pick.industry])
+        ].filter(Boolean).join(" ").toLowerCase();
+        return matchesFilter && (!query || haystack.includes(query));
+      });
+    }
+
+    function chooseDefaultAiDate(items) {
+      const pending = items.find((item) => ["pending", "issue", "missing"].includes(item.statusGroup));
+      return aiItemKey(pending || items[0] || {});
+    }
+
+    function renderAiTrackSummary(items) {
       if (!aiTrackSummary) return;
 
-      const picks = batches.flatMap((batch) => batch.picks || []);
+      const picks = items.flatMap((item) => item.picks || []);
       const linkedCount = picks.filter((pick) => pick.trackingStatus !== "tracking_missing").length;
       const currentValues = picks.map((pick) => pick.current).filter(hasNumber).map(Number);
       const peakValues = picks.map((pick) => pick.peak).filter(hasNumber).map(Number);
-      const latestBatch = batches[0];
-      const latestNames = latestBatch ? latestBatch.picks.map((pick) => pick.name || pick.code).join(" / ") : "-";
+      const latestSignalItem = items[0];
+      const latestCompleted = items.find((item) => item.statusGroup === "completed");
+      const pendingCount = items.filter((item) => ["pending", "issue", "missing"].includes(item.statusGroup)).length;
 
       aiTrackSummary.innerHTML = [
-        { label: "已記錄天數", value: `${batches.length} 天` },
+        { label: "最新 Signal date", value: latestSignalItem ? latestSignalItem.date : "-" },
+        { label: "最新完成 AI decision", value: latestCompleted ? latestCompleted.date : "-" },
+        { label: "待處理日期", value: `${pendingCount} 天` },
         { label: "累積 AI picks", value: `${picks.length} 檔` },
         { label: "已接 Signal Log", value: `${linkedCount}/${picks.length}` },
         { label: "最高曾經漲幅", value: peakValues.length ? formatPct(Math.max(...peakValues)) : "-" },
-        { label: "最新一筆", value: latestBatch ? `${latestBatch.date}｜${latestNames}` : "-" },
         { label: "目前平均漲跌", value: currentValues.length ? formatPct(avg(currentValues)) : "-" },
-        { label: "目前正報酬", value: `${currentValues.filter((value) => value > 0).length}/${currentValues.length || picks.length}` },
-        { label: "瀏覽模式", value: "左選日期 / 右看詳情" }
+        { label: "目前正報酬", value: `${currentValues.filter((value) => value > 0).length}/${currentValues.length || picks.length}` }
       ].map((item) => `
         <div class="ai-summary-stat">
           <span>${escapeHtml(item.label)}</span>
@@ -18015,50 +18410,98 @@
       `).join("");
     }
 
-    function renderAiDateList(batches) {
+    function renderAiDateList(items) {
       if (!aiDateList) return;
-      if (aiDateCount) aiDateCount.textContent = `${batches.length} 天`;
+      if (aiDateCount) aiDateCount.textContent = `${items.length} 天`;
 
-      aiDateList.innerHTML = batches.map((batch) => {
-        const key = aiBatchKey(batch);
-        const linkedCount = batch.picks.filter((pick) => pick.trackingStatus !== "tracking_missing").length;
+      if (!items.length) {
+        aiDateList.innerHTML = `<div class="empty">沒有符合條件的 AI 追蹤紀錄。</div>`;
+        return;
+      }
+
+      aiDateList.innerHTML = items.map((item) => {
+        const key = aiItemKey(item);
         const isActive = key === selectedAiBatchRawDate;
+        const meta = statusMetaFor(item);
 
         return `
-          <button class="ai-date-button ${isActive ? "active" : ""}" type="button" data-ai-date="${escapeHtml(key)}">
+          <button class="ai-date-button ${isActive ? "active" : ""}" type="button" data-ai-date="${escapeHtml(key)}" data-status-group="${escapeHtml(item.statusGroup)}">
             <div class="ai-date-row">
-              <strong>${escapeHtml(batch.date)}</strong>
-              <span>${linkedCount}/${batch.picks.length}</span>
+              <strong>${escapeHtml(item.date)}</strong>
+              <span class="ai-status-pill ${escapeHtml(meta.group)}">${escapeHtml(item.statusLabel || meta.label)}</span>
             </div>
-            <div class="ai-date-meta">${escapeHtml(batch.model || "manual")}｜${escapeHtml(aiPickNameLine(batch))}</div>
+            <div class="ai-date-meta">${escapeHtml(item.model || "manual")}｜${escapeHtml(aiPickNameLine(item))}</div>
             <div class="ai-date-picks">
-              ${batch.picks.map((pick) => `<span>#${escapeHtml(pick.pickRank)} ${escapeHtml(pick.code)} ${escapeHtml(pick.name)}</span>`).join("")}
+              ${(item.picks || []).length
+                ? item.picks.map((pick) => `<span>#${escapeHtml(pick.pickRank)} ${escapeHtml(pick.code)} ${escapeHtml(pick.name)}</span>`).join("")
+                : `<span>${escapeHtml(item.pendingSummary || item.statusLabel || "-")}</span>`}
             </div>
           </button>
         `;
       }).join("");
     }
 
-    function renderAiBatchDetail(batch) {
+    function renderAiChecklist(item) {
+      const rows = [
+        ["候選卡", item.hasCandidateCard, item.candidateCardFile],
+        ["Prompt", item.hasPrompt, item.promptFile],
+        ["Manual input", item.hasManualInput, item.manualInputFile],
+        ["Raw decision", item.hasRawDecision, item.rawDecisionFile],
+        ["Parsed decision", item.hasParsedDecision, item.parsedDecisionFile || item.recordStatus]
+      ];
+
+      return `
+        <div class="ai-checklist">
+          ${rows.map(([label, done, detail]) => `
+            <div class="ai-check-row">
+              <strong>${escapeHtml(label)}</strong>
+              <span>${escapeHtml(detail || (done ? "已存在" : "尚未建立"))}</span>
+              <span class="ai-status-pill ${done ? "completed" : "pending"}">${done ? "OK" : "待處理"}</span>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderAiBatchDetail(item) {
       if (!aiBatchDetail) return;
 
-      if (!batch) {
+      if (!item) {
         aiBatchDetail.innerHTML = `<div class="empty">請先從左側選擇一個 AI 決策日期。</div>`;
         return;
       }
 
-      const linkedCount = batch.picks.filter((pick) => pick.trackingStatus !== "tracking_missing").length;
+      const linkedCount = (item.picks || []).filter((pick) => pick.trackingStatus !== "tracking_missing").length;
+      const meta = statusMetaFor(item);
+
+      if (!item.hasCompletedPicks) {
+        aiBatchDetail.innerHTML = `
+          <div class="ai-pick-batch-head">
+            <div class="ai-pick-batch-title">
+              <h3>${escapeHtml(item.date)} AI workflow</h3>
+              <span>${escapeHtml(item.model || "manual")}</span>
+            </div>
+            <div class="ai-pick-batch-meta"><span class="ai-status-pill ${escapeHtml(meta.group)}">${escapeHtml(item.statusLabel || meta.label)}</span></div>
+          </div>
+          <div class="ai-pending-panel">
+            <p class="ai-pending-copy">這一天還不是正式 AI picks。網站只顯示 artifact 狀態，不讀取 manual input 內容，也不把暫存回覆當成策略紀錄。</p>
+            ${renderAiChecklist(item)}
+            ${item.parseError ? `<p class="ai-pending-copy">解析錯誤：${escapeHtml(item.parseError)}</p>` : ""}
+          </div>
+        `;
+        return;
+      }
 
       aiBatchDetail.innerHTML = `
         <div class="ai-pick-batch-head">
           <div class="ai-pick-batch-title">
-            <h3>${escapeHtml(batch.date)} AI locked picks</h3>
-            <span>${escapeHtml(batch.model || "manual")}</span>
+            <h3>${escapeHtml(item.date)} AI locked picks</h3>
+            <span>${escapeHtml(item.model || "manual")}</span>
           </div>
-          <div class="ai-pick-batch-meta">${batch.picks.length} 檔｜已接追蹤 ${linkedCount}/${batch.picks.length}</div>
+          <div class="ai-pick-batch-meta">${item.picks.length} 檔｜已接追蹤 ${linkedCount}/${item.picks.length}</div>
         </div>
         <div class="ai-pick-grid">
-          ${batch.picks.map((pick) => {
+          ${item.picks.map((pick) => {
             const reason = pick.reason || "未提供簡短理由。";
             return `
             <div class="ai-pick-card">
@@ -18103,24 +18546,77 @@
       `;
     }
 
+    function renderAiHistory(items) {
+      if (!aiHistoryTable) return;
+
+      if (!items.length) {
+        aiHistoryTable.innerHTML = `<div class="empty">沒有符合條件的 AI 歷史紀錄。</div>`;
+        return;
+      }
+
+      aiHistoryTable.innerHTML = `
+        <table class="ai-history-table">
+          <thead>
+            <tr>
+              <th>日期</th>
+              <th>狀態</th>
+              <th>3 檔 / 流程</th>
+              <th>目前平均</th>
+              <th>最高曾經</th>
+              <th>追蹤</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${items.map((item) => {
+              const meta = statusMetaFor(item);
+              const key = aiItemKey(item);
+              return `
+                <tr class="ai-history-row ${key === selectedAiBatchRawDate ? "active" : ""}" data-ai-date="${escapeHtml(key)}">
+                  <td><strong>${escapeHtml(item.date)}</strong></td>
+                  <td><span class="ai-status-pill ${escapeHtml(meta.group)}">${escapeHtml(item.statusLabel || meta.label)}</span></td>
+                  <td class="ai-history-picks">${escapeHtml(aiPickNameLine(item))}</td>
+                  <td>${hasNumber(item.currentAvg) ? formatPct(item.currentAvg) : "-"}</td>
+                  <td>${hasNumber(item.bestPeak) ? formatPct(item.bestPeak) : "-"}</td>
+                  <td>${item.picks.length ? `${item.linkedCount}/${item.picks.length}` : "-"}</td>
+                </tr>
+              `;
+            }).join("")}
+          </tbody>
+        </table>
+      `;
+    }
+
     function renderAiPicks() {
       if (!aiTrackSummary || !aiDateList || !aiBatchDetail) return;
-      if (!aiPicks.length) {
+      const allItems = buildAiItems();
+      if (!allItems.length) {
         aiTrackSummary.innerHTML = "";
         aiDateList.innerHTML = "";
+        if (aiHistoryTable) aiHistoryTable.innerHTML = "";
         aiBatchDetail.innerHTML = `<div class="empty">目前還沒有已正式保存的 AI picks。</div>`;
         if (aiDateCount) aiDateCount.textContent = "0 天";
         return;
       }
 
-      const batches = orderedAiBatches();
-      if (!selectedAiBatchRawDate || !batches.some((batch) => aiBatchKey(batch) === selectedAiBatchRawDate)) {
-        selectedAiBatchRawDate = aiBatchKey(batches[0]);
+      const filteredItems = filterAiItems(allItems);
+      if (!selectedAiBatchRawDate || !allItems.some((item) => aiItemKey(item) === selectedAiBatchRawDate)) {
+        selectedAiBatchRawDate = chooseDefaultAiDate(allItems);
+      }
+      if (!filteredItems.length) {
+        renderAiTrackSummary(allItems);
+        renderAiDateList(filteredItems);
+        renderAiHistory(filteredItems);
+        renderAiBatchDetail(null);
+        return;
+      }
+      if (filteredItems.length && !filteredItems.some((item) => aiItemKey(item) === selectedAiBatchRawDate)) {
+        selectedAiBatchRawDate = chooseDefaultAiDate(filteredItems);
       }
 
-      renderAiTrackSummary(batches);
-      renderAiDateList(batches);
-      renderAiBatchDetail(batches.find((batch) => aiBatchKey(batch) === selectedAiBatchRawDate));
+      renderAiTrackSummary(allItems);
+      renderAiDateList(filteredItems);
+      renderAiHistory(filteredItems);
+      renderAiBatchDetail(allItems.find((item) => aiItemKey(item) === selectedAiBatchRawDate));
     }
 
     function renderFilters() {
@@ -18274,6 +18770,31 @@
         const button = event.target.closest("[data-ai-date]");
         if (!button) return;
         selectedAiBatchRawDate = button.dataset.aiDate;
+        renderAiPicks();
+      });
+    }
+    if (aiStatusFilters) {
+      aiStatusFilters.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-ai-filter]");
+        if (!button) return;
+        currentAiFilter = button.dataset.aiFilter;
+        aiStatusFilters.querySelectorAll("[data-ai-filter]").forEach((filterButton) => {
+          filterButton.classList.toggle("active", filterButton === button);
+        });
+        renderAiPicks();
+      });
+    }
+    if (aiSearchInput) {
+      aiSearchInput.addEventListener("input", (event) => {
+        currentAiSearch = event.target.value;
+        renderAiPicks();
+      });
+    }
+    if (aiHistoryTable) {
+      aiHistoryTable.addEventListener("click", (event) => {
+        const row = event.target.closest("[data-ai-date]");
+        if (!row) return;
+        selectedAiBatchRawDate = row.dataset.aiDate;
         renderAiPicks();
       });
     }
