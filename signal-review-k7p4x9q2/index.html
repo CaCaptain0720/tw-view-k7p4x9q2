@@ -1303,6 +1303,7 @@
     }
 
     .ai-await-card,
+    .ai-interim-card,
     .ai-qa-failed,
     .ai-verdict-card,
     .ai-perf-block {
@@ -1311,19 +1312,186 @@
       background: var(--surface);
     }
 
+    .ai-interim-card {
+      padding: 18px;
+      border-top: 3px solid var(--navy);
+    }
+
+    .ai-interim-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .ai-interim-head h3 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.3;
+    }
+
+    .ai-interim-head p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .ai-interim-badge {
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border: 1px solid #decba8;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 10px;
+      font-weight: 900;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .ai-interim-kpis {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      overflow: hidden;
+    }
+
+    .ai-interim-kpi {
+      min-width: 0;
+      padding: 14px;
+      border-left: 1px solid var(--line);
+    }
+
+    .ai-interim-kpi:first-child {
+      border-left: 0;
+    }
+
+    .ai-interim-kpi span,
+    .ai-current-threshold span,
+    .ai-age-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .ai-interim-kpi strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--ink);
+      font-size: clamp(25px, 3vw, 34px);
+      font-weight: 950;
+      letter-spacing: -0.035em;
+      line-height: 1.05;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ai-interim-kpi strong.positive { color: var(--green); }
+    .ai-interim-kpi strong.negative { color: var(--red); }
+
+    .ai-interim-kpi small {
+      display: block;
+      margin-top: 5px;
+      color: var(--soft);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .ai-current-thresholds {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .ai-current-threshold {
+      padding: 10px 12px;
+      border-left: 1px solid var(--line-2);
+      background: var(--surface);
+    }
+
+    .ai-current-threshold:first-child {
+      border-left: 0;
+    }
+
+    .ai-current-threshold strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ai-age-section {
+      margin-top: 14px;
+      padding-top: 13px;
+      border-top: 1px solid var(--line-2);
+    }
+
+    .ai-age-section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      line-height: 1.4;
+    }
+
+    .ai-age-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .ai-age-item {
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #fffdf8;
+    }
+
+    .ai-age-item strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 950;
+      line-height: 1.3;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ai-interim-footnote {
+      margin: 10px 0 0;
+      color: var(--soft);
+      font-size: 10px;
+      line-height: 1.55;
+    }
+
     .ai-await-card {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-      gap: 22px;
-      padding: 22px;
-      border-top: 3px solid var(--blue);
+      grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
+      gap: 18px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--blue);
     }
 
     .ai-await-main strong {
       display: block;
       margin: 4px 0 8px;
       color: var(--navy);
-      font-size: clamp(28px, 4vw, 48px);
+      font-size: clamp(24px, 3vw, 34px);
       font-weight: 950;
       letter-spacing: -0.04em;
       line-height: 1.05;
@@ -1344,7 +1512,7 @@
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 11px;
       color: var(--muted);
       font-size: 11px;
       font-weight: 850;
@@ -2818,6 +2986,10 @@
         grid-template-columns: 1fr;
       }
 
+      .ai-age-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .ai-await-side {
         padding: 16px 0 0;
         border-left: 0;
@@ -2969,9 +3141,40 @@
       .ai-view-command,
       .ai-perf-toolbar,
       .ai-perf-section-head,
+      .ai-interim-head,
       .ai-verdict-card {
         align-items: stretch;
         flex-direction: column;
+      }
+
+      .ai-interim-kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-interim-kpi {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .ai-interim-kpi:first-child {
+        border-top: 0;
+      }
+
+      .ai-current-thresholds,
+      .ai-age-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ai-current-threshold {
+        border-top: 1px solid var(--line-2);
+      }
+
+      .ai-current-threshold:nth-child(-n+2) {
+        border-top: 0;
+      }
+
+      .ai-current-threshold:nth-child(odd) {
+        border-left: 0;
       }
 
       .ai-verdict-card {
@@ -3316,7 +3519,7 @@
             <span class="ai-view-hint">正式績效與日常追蹤分開計算</span>
           </div>
 
-          <section class="ai-performance-root" id="aiPerformanceRoot" data-ai-panel="performance" aria-label="AI 正式績效"></section>
+          <section class="ai-performance-root" id="aiPerformanceRoot" data-ai-panel="performance" aria-label="AI 選股績效"></section>
 
           <div id="aiDetailRoot" data-ai-panel="detail" hidden>
             <div class="ai-track-summary" id="aiTrackSummary"></div>
@@ -32678,7 +32881,7 @@
 ];
 
     const aiPerformance = {
-      "schemaVersion": "ai_performance_summary_v1",
+      "schemaVersion": "ai_performance_summary_v2",
       "asOf": "2026/08/01",
       "defaultCohortId": "dc85ac66dfae10d9::forward_validation",
       "cohorts": [
@@ -32712,6 +32915,276 @@
                         "repeatWithin20d": 28,
                         "reentryAfter20d": 0
                   },
+                  "interimTracking": {
+                        "status": "ready",
+                        "provisional": true,
+                        "source": "Signal Log buyable tracking",
+                        "basis": "最新收盤價 ÷ 可成交近似開盤價 − 1",
+                        "sourceAvailable": true,
+                        "scopes": {
+                              "decision": {
+                                    "status": "ready",
+                                    "totalPickCount": 45,
+                                    "eligiblePickCount": 42,
+                                    "excludedPickCount": 3,
+                                    "positiveCount": 15,
+                                    "zeroCount": 0,
+                                    "negativeCount": 27,
+                                    "positiveRate": {
+                                          "numerator": 15,
+                                          "denominator": 42,
+                                          "rate": 35.71
+                                    },
+                                    "medianReturn": -10.8,
+                                    "currentThresholds": {
+                                          "10": {
+                                                "numerator": 0,
+                                                "denominator": 42,
+                                                "rate": 0.0
+                                          },
+                                          "20": {
+                                                "numerator": 0,
+                                                "denominator": 42,
+                                                "rate": 0.0
+                                          },
+                                          "30": {
+                                                "numerator": 0,
+                                                "denominator": 42,
+                                                "rate": 0.0
+                                          },
+                                          "50": {
+                                                "numerator": 0,
+                                                "denominator": 42,
+                                                "rate": 0.0
+                                          }
+                                    },
+                                    "minObservedDays": 1,
+                                    "maxObservedDays": 14,
+                                    "dataThrough": "2026/07/31",
+                                    "delayedEntryCount": 0,
+                                    "unbandedCount": 0,
+                                    "returnReconciliationMismatchCount": 0,
+                                    "ageBands": [
+                                          {
+                                                "id": "1-4d",
+                                                "label": "1–4D",
+                                                "count": 12,
+                                                "medianReturn": -2.27,
+                                                "positiveRate": 33.33
+                                          },
+                                          {
+                                                "id": "5-9d",
+                                                "label": "5–9D",
+                                                "count": 15,
+                                                "medianReturn": -17.29,
+                                                "positiveRate": 33.33
+                                          },
+                                          {
+                                                "id": "10-14d",
+                                                "label": "10–14D",
+                                                "count": 15,
+                                                "medianReturn": -22.63,
+                                                "positiveRate": 40.0
+                                          },
+                                          {
+                                                "id": "15-19d",
+                                                "label": "15–19D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "20dplus",
+                                                "label": "20D+",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          }
+                                    ],
+                                    "exclusions": [
+                                          {
+                                                "reason": "waiting_next_open",
+                                                "label": "尚待下一交易日開盤",
+                                                "count": 3
+                                          }
+                                    ]
+                              },
+                              "first_unique": {
+                                    "status": "ready",
+                                    "totalPickCount": 17,
+                                    "eligiblePickCount": 15,
+                                    "excludedPickCount": 2,
+                                    "positiveCount": 2,
+                                    "zeroCount": 0,
+                                    "negativeCount": 13,
+                                    "positiveRate": {
+                                          "numerator": 2,
+                                          "denominator": 15,
+                                          "rate": 13.33
+                                    },
+                                    "medianReturn": -13.34,
+                                    "currentThresholds": {
+                                          "10": {
+                                                "numerator": 0,
+                                                "denominator": 15,
+                                                "rate": 0.0
+                                          },
+                                          "20": {
+                                                "numerator": 0,
+                                                "denominator": 15,
+                                                "rate": 0.0
+                                          },
+                                          "30": {
+                                                "numerator": 0,
+                                                "denominator": 15,
+                                                "rate": 0.0
+                                          },
+                                          "50": {
+                                                "numerator": 0,
+                                                "denominator": 15,
+                                                "rate": 0.0
+                                          }
+                                    },
+                                    "minObservedDays": 1,
+                                    "maxObservedDays": 14,
+                                    "dataThrough": "2026/07/31",
+                                    "delayedEntryCount": 0,
+                                    "unbandedCount": 0,
+                                    "returnReconciliationMismatchCount": 0,
+                                    "ageBands": [
+                                          {
+                                                "id": "1-4d",
+                                                "label": "1–4D",
+                                                "count": 3,
+                                                "medianReturn": -0.89,
+                                                "positiveRate": 0.0
+                                          },
+                                          {
+                                                "id": "5-9d",
+                                                "label": "5–9D",
+                                                "count": 5,
+                                                "medianReturn": -17.29,
+                                                "positiveRate": 0.0
+                                          },
+                                          {
+                                                "id": "10-14d",
+                                                "label": "10–14D",
+                                                "count": 7,
+                                                "medianReturn": -22.63,
+                                                "positiveRate": 28.57
+                                          },
+                                          {
+                                                "id": "15-19d",
+                                                "label": "15–19D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "20dplus",
+                                                "label": "20D+",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          }
+                                    ],
+                                    "exclusions": [
+                                          {
+                                                "reason": "waiting_next_open",
+                                                "label": "尚待下一交易日開盤",
+                                                "count": 2
+                                          }
+                                    ]
+                              },
+                              "repeat_within_20d": {
+                                    "status": "ready",
+                                    "totalPickCount": 28,
+                                    "eligiblePickCount": 27,
+                                    "excludedPickCount": 1,
+                                    "positiveCount": 13,
+                                    "zeroCount": 0,
+                                    "negativeCount": 14,
+                                    "positiveRate": {
+                                          "numerator": 13,
+                                          "denominator": 27,
+                                          "rate": 48.15
+                                    },
+                                    "medianReturn": -10.21,
+                                    "currentThresholds": {
+                                          "10": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          },
+                                          "20": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          },
+                                          "30": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          },
+                                          "50": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          }
+                                    },
+                                    "minObservedDays": 1,
+                                    "maxObservedDays": 13,
+                                    "dataThrough": "2026/07/31",
+                                    "delayedEntryCount": 0,
+                                    "unbandedCount": 0,
+                                    "returnReconciliationMismatchCount": 0,
+                                    "ageBands": [
+                                          {
+                                                "id": "1-4d",
+                                                "label": "1–4D",
+                                                "count": 9,
+                                                "medianReturn": -10.21,
+                                                "positiveRate": 44.44
+                                          },
+                                          {
+                                                "id": "5-9d",
+                                                "label": "5–9D",
+                                                "count": 10,
+                                                "medianReturn": -9.72,
+                                                "positiveRate": 50.0
+                                          },
+                                          {
+                                                "id": "10-14d",
+                                                "label": "10–14D",
+                                                "count": 8,
+                                                "medianReturn": -10.27,
+                                                "positiveRate": 50.0
+                                          },
+                                          {
+                                                "id": "15-19d",
+                                                "label": "15–19D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "20dplus",
+                                                "label": "20D+",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          }
+                                    ],
+                                    "exclusions": [
+                                          {
+                                                "reason": "waiting_next_open",
+                                                "label": "尚待下一交易日開盤",
+                                                "count": 1
+                                          }
+                                    ]
+                              }
+                        }
+                  },
                   "performance": {
                         "status": "pending",
                         "validation_set": "forward_validation",
@@ -33600,7 +34073,8 @@
                         "returnBasis": "第 20 日收盤價 ÷ 進場開盤價 − 1",
                         "priceSource": "Yahoo raw OHLC snapshot",
                         "costs": "未扣手續費、交易稅、滑價與股息",
-                        "accountPnl": false
+                        "accountPnl": false,
+                        "interim": "暫時值只用 Signal Log 的 buyable_open_price 與 path_latest_close 重新計算；不使用 next-open 或 signal basis 補位"
                   }
             },
             {
@@ -33633,6 +34107,258 @@
                         "repeatWithin20d": 13,
                         "reentryAfter20d": 0
                   },
+                  "interimTracking": {
+                        "status": "ready",
+                        "provisional": true,
+                        "source": "Signal Log buyable tracking",
+                        "basis": "最新收盤價 ÷ 可成交近似開盤價 − 1",
+                        "sourceAvailable": true,
+                        "scopes": {
+                              "decision": {
+                                    "status": "ready",
+                                    "totalPickCount": 27,
+                                    "eligiblePickCount": 27,
+                                    "excludedPickCount": 0,
+                                    "positiveCount": 2,
+                                    "zeroCount": 0,
+                                    "negativeCount": 25,
+                                    "positiveRate": {
+                                          "numerator": 2,
+                                          "denominator": 27,
+                                          "rate": 7.41
+                                    },
+                                    "medianReturn": -21.15,
+                                    "currentThresholds": {
+                                          "10": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          },
+                                          "20": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          },
+                                          "30": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          },
+                                          "50": {
+                                                "numerator": 0,
+                                                "denominator": 27,
+                                                "rate": 0.0
+                                          }
+                                    },
+                                    "minObservedDays": 16,
+                                    "maxObservedDays": 25,
+                                    "dataThrough": "2026/07/31",
+                                    "delayedEntryCount": 0,
+                                    "unbandedCount": 0,
+                                    "returnReconciliationMismatchCount": 0,
+                                    "ageBands": [
+                                          {
+                                                "id": "1-4d",
+                                                "label": "1–4D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "5-9d",
+                                                "label": "5–9D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "10-14d",
+                                                "label": "10–14D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "15-19d",
+                                                "label": "15–19D",
+                                                "count": 12,
+                                                "medianReturn": -20.37,
+                                                "positiveRate": 16.67
+                                          },
+                                          {
+                                                "id": "20dplus",
+                                                "label": "20D+",
+                                                "count": 15,
+                                                "medianReturn": -24.43,
+                                                "positiveRate": 0.0
+                                          }
+                                    ],
+                                    "exclusions": []
+                              },
+                              "first_unique": {
+                                    "status": "ready",
+                                    "totalPickCount": 14,
+                                    "eligiblePickCount": 14,
+                                    "excludedPickCount": 0,
+                                    "positiveCount": 0,
+                                    "zeroCount": 0,
+                                    "negativeCount": 14,
+                                    "positiveRate": {
+                                          "numerator": 0,
+                                          "denominator": 14,
+                                          "rate": 0.0
+                                    },
+                                    "medianReturn": -25.93,
+                                    "currentThresholds": {
+                                          "10": {
+                                                "numerator": 0,
+                                                "denominator": 14,
+                                                "rate": 0.0
+                                          },
+                                          "20": {
+                                                "numerator": 0,
+                                                "denominator": 14,
+                                                "rate": 0.0
+                                          },
+                                          "30": {
+                                                "numerator": 0,
+                                                "denominator": 14,
+                                                "rate": 0.0
+                                          },
+                                          "50": {
+                                                "numerator": 0,
+                                                "denominator": 14,
+                                                "rate": 0.0
+                                          }
+                                    },
+                                    "minObservedDays": 16,
+                                    "maxObservedDays": 25,
+                                    "dataThrough": "2026/07/31",
+                                    "delayedEntryCount": 0,
+                                    "unbandedCount": 0,
+                                    "returnReconciliationMismatchCount": 0,
+                                    "ageBands": [
+                                          {
+                                                "id": "1-4d",
+                                                "label": "1–4D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "5-9d",
+                                                "label": "5–9D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "10-14d",
+                                                "label": "10–14D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "15-19d",
+                                                "label": "15–19D",
+                                                "count": 3,
+                                                "medianReturn": -25.42,
+                                                "positiveRate": 0.0
+                                          },
+                                          {
+                                                "id": "20dplus",
+                                                "label": "20D+",
+                                                "count": 11,
+                                                "medianReturn": -26.43,
+                                                "positiveRate": 0.0
+                                          }
+                                    ],
+                                    "exclusions": []
+                              },
+                              "repeat_within_20d": {
+                                    "status": "ready",
+                                    "totalPickCount": 13,
+                                    "eligiblePickCount": 13,
+                                    "excludedPickCount": 0,
+                                    "positiveCount": 2,
+                                    "zeroCount": 0,
+                                    "negativeCount": 11,
+                                    "positiveRate": {
+                                          "numerator": 2,
+                                          "denominator": 13,
+                                          "rate": 15.38
+                                    },
+                                    "medianReturn": -19.59,
+                                    "currentThresholds": {
+                                          "10": {
+                                                "numerator": 0,
+                                                "denominator": 13,
+                                                "rate": 0.0
+                                          },
+                                          "20": {
+                                                "numerator": 0,
+                                                "denominator": 13,
+                                                "rate": 0.0
+                                          },
+                                          "30": {
+                                                "numerator": 0,
+                                                "denominator": 13,
+                                                "rate": 0.0
+                                          },
+                                          "50": {
+                                                "numerator": 0,
+                                                "denominator": 13,
+                                                "rate": 0.0
+                                          }
+                                    },
+                                    "minObservedDays": 16,
+                                    "maxObservedDays": 22,
+                                    "dataThrough": "2026/07/31",
+                                    "delayedEntryCount": 0,
+                                    "unbandedCount": 0,
+                                    "returnReconciliationMismatchCount": 0,
+                                    "ageBands": [
+                                          {
+                                                "id": "1-4d",
+                                                "label": "1–4D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "5-9d",
+                                                "label": "5–9D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "10-14d",
+                                                "label": "10–14D",
+                                                "count": 0,
+                                                "medianReturn": null,
+                                                "positiveRate": null
+                                          },
+                                          {
+                                                "id": "15-19d",
+                                                "label": "15–19D",
+                                                "count": 9,
+                                                "medianReturn": -19.59,
+                                                "positiveRate": 22.22
+                                          },
+                                          {
+                                                "id": "20dplus",
+                                                "label": "20D+",
+                                                "count": 4,
+                                                "medianReturn": -21.88,
+                                                "positiveRate": 0.0
+                                          }
+                                    ],
+                                    "exclusions": []
+                              }
+                        }
+                  },
                   "performance": {
                         "status": "pending",
                         "validation_set": "forward_validation",
@@ -34521,7 +35247,8 @@
                         "returnBasis": "第 20 日收盤價 ÷ 進場開盤價 − 1",
                         "priceSource": "Yahoo raw OHLC snapshot",
                         "costs": "未扣手續費、交易稅、滑價與股息",
-                        "accountPnl": false
+                        "accountPnl": false,
+                        "interim": "暫時值只用 Signal Log 的 buyable_open_price 與 path_latest_close 重新計算；不使用 next-open 或 signal basis 補位"
                   }
             }
       ],
@@ -34542,7 +35269,8 @@
                   "description": "前一次選擇仍在 20D 觀察窗內又被選到"
             }
       ],
-      "formalOnly": true
+      "formalOnly": false,
+      "formalMetricsRequireArtifact": true
 };
 
     const hasNumber = (value) => value !== null && value !== undefined && Number.isFinite(Number(value));
@@ -34948,6 +35676,10 @@
       return hasNumber(value) ? formatPct(Number(value)) : "—";
     }
 
+    function formalRate(value) {
+      return hasNumber(value) ? `${Number(value).toFixed(1)}%` : "—";
+    }
+
     function clampRate(value) {
       return hasNumber(value) ? Math.max(0, Math.min(100, Number(value))) : 0;
     }
@@ -34958,7 +35690,7 @@
         { label: "資料截至", value: cohort.dataThrough || aiPerformance.asOf || "—" },
         { label: "成熟決策日", value: `${cohort.maturedDecisionCount || 0}/${cohort.decisionCount || 0}` },
         { label: "成熟 picks", value: `${cohort.maturedPickCount || 0}/${cohort.pickCount || 0}` },
-        { label: "排除 picks", value: String(cohort.excludedPickCount || 0) }
+        { label: "正式排除", value: String(cohort.excludedPickCount || 0) }
       ];
       return `<div class="ai-perf-meta">${items.map((item) => `
         <div class="ai-perf-meta-item">
@@ -34988,9 +35720,14 @@
     function renderAiMethodDetails(cohort) {
       const method = cohort.method || {};
       const blocked = Array.isArray(cohort.blockedReports) ? cohort.blockedReports : [];
+      const interim = cohort.interimTracking || {};
+      const interimScope = interim.scopes?.[currentAiScope] || interim.scopes?.decision || {};
       const blockedText = blocked.length
         ? blocked.map((item) => `${item.date || "—"}：${[...(item.reasons || []), ...(item.issues || [])].join("、") || item.status}`).join("；")
         : "目前沒有正式排除項目";
+      const interimExclusions = Array.isArray(interimScope.exclusions) && interimScope.exclusions.length
+        ? interimScope.exclusions.map((item) => `${item.label} ${item.count} 筆`).join("；")
+        : "目前沒有暫時追蹤排除項目";
       return `
         <details class="ai-method-details">
           <summary>資料品質與計算方法</summary>
@@ -35001,10 +35738,108 @@
             <div class="ai-method-item"><strong>價格來源</strong>${escapeHtml(method.priceSource || "—")}</div>
             <div class="ai-method-item"><strong>交易成本</strong>${escapeHtml(method.costs || "—")}</div>
             <div class="ai-method-item"><strong>排除與 QA</strong>${escapeHtml(blockedText)}</div>
+            <div class="ai-method-item"><strong>暫時追蹤</strong>${escapeHtml(method.interim || interim.basis || "—")}</div>
+            <div class="ai-method-item"><strong>暫時分母</strong>${escapeHtml(interimExclusions)}</div>
             <div class="ai-method-item"><strong>V2.2 Top3</strong>相同成熟日期，直接取同日排名 1～3。</div>
             <div class="ai-method-item"><strong>Random Top15</strong>同日 Top15 無放回抽 3 檔，共 10,000 次；顯示中位數與 95% simulation band。</div>
           </div>
         </details>
+      `;
+    }
+
+    function renderAiInterimTracking(cohort) {
+      const interim = cohort.interimTracking || {};
+      const scope = interim.scopes?.[currentAiScope] || {};
+      const total = Number(scope.totalPickCount) || 0;
+      const eligible = Number(scope.eligiblePickCount) || 0;
+      const excluded = Number(scope.excludedPickCount) || 0;
+      if (!eligible) {
+        const message = total
+          ? `這個視角目前 ${total} 筆都還沒有一致的可成交近似價與最新收盤價。`
+          : "這個視角目前沒有可追蹤的 picks。";
+        return `
+          <section class="ai-interim-card">
+            <div class="ai-interim-head">
+              <div>
+                <span class="ai-perf-eyebrow">LIVE TRACKING · PROVISIONAL</span>
+                <h3>截至目前的暫時表現</h3>
+                <p>${escapeHtml(message)}不會改用 next-open 或 signal basis 補位。</p>
+              </div>
+              <span class="ai-interim-badge">非正式 20D 結果</span>
+            </div>
+          </section>
+        `;
+      }
+
+      const positiveRate = scope.positiveRate || {};
+      const thresholdItems = [10, 20, 30, 50].map((threshold) => {
+        const item = scope.currentThresholds?.[String(threshold)] || {};
+        return `
+          <div class="ai-current-threshold">
+            <span>目前仍在 +${threshold}% 以上</span>
+            <strong>${item.numerator || 0}/${item.denominator || eligible}</strong>
+          </div>
+        `;
+      }).join("");
+      const ageBands = (scope.ageBands || []).filter((item) => item.label !== "20D+");
+      const ageItems = ageBands.map((item) => `
+        <div class="ai-age-item">
+          <span>${escapeHtml(item.label)} · ${item.count || 0} 筆</span>
+          <strong>${item.count ? `${formalPct(item.medianReturn)} 中位數` : "等待資料"}</strong>
+          <span>${item.count ? `正報酬 ${formalRate(item.positiveRate)}` : "尚無同日齡樣本"}</span>
+        </div>
+      `).join("");
+      const minDays = hasNumber(scope.minObservedDays) ? Number(scope.minObservedDays) : null;
+      const maxDays = hasNumber(scope.maxObservedDays) ? Number(scope.maxObservedDays) : null;
+      const observationLabel = minDays !== null && maxDays !== null
+        ? `${minDays}–${maxDays}D 不同觀察期`
+        : "觀察期持續累積";
+      const exclusionText = Array.isArray(scope.exclusions) && scope.exclusions.length
+        ? scope.exclusions.map((item) => `${item.label} ${item.count} 筆`).join("；")
+        : "目前沒有排除項目";
+      const mismatchText = scope.returnReconciliationMismatchCount
+        ? `；另有 ${scope.returnReconciliationMismatchCount} 筆既有報酬欄位與價格重算不一致，本頁採價格重算`
+        : "";
+      const delayedText = scope.delayedEntryCount
+        ? `；延後進場 ${scope.delayedEntryCount} 筆保留在總覽，但不放入 D+1 日齡分段`
+        : "";
+      return `
+        <section class="ai-interim-card">
+          <div class="ai-interim-head">
+            <div>
+              <span class="ai-perf-eyebrow">LIVE TRACKING · PROVISIONAL</span>
+              <h3>截至目前的暫時表現</h3>
+              <p>資料截至 ${escapeHtml(scope.dataThrough || cohort.dataThrough || "—")}；每筆 pick 等權觀察，數值會隨最新收盤價改變。</p>
+            </div>
+            <span class="ai-interim-badge">${escapeHtml(observationLabel)}</span>
+          </div>
+          <div class="ai-interim-kpis">
+            <div class="ai-interim-kpi">
+              <span>目前報酬中位數</span>
+              <strong class="${classFor(Number(scope.medianReturn) || 0)}">${formalPct(scope.medianReturn)}</strong>
+              <small>比平均數較不容易被極端值拉動</small>
+            </div>
+            <div class="ai-interim-kpi">
+              <span>目前正報酬率</span>
+              <strong>${formalRate(positiveRate.rate)}</strong>
+              <small>${positiveRate.numerator || 0}/${positiveRate.denominator || eligible} 筆目前高於進場價</small>
+            </div>
+            <div class="ai-interim-kpi">
+              <span>目前可計算</span>
+              <strong>${eligible}/${total}</strong>
+              <small>${excluded ? `${excluded} 筆暫時未納入分母` : "所有 picks 皆有一致價格"}</small>
+            </div>
+          </div>
+          <div class="ai-current-thresholds" aria-label="目前報酬門檻">${thresholdItems}</div>
+          <div class="ai-age-section">
+            <div class="ai-age-section-head">
+              <span>按訊號後觀察天數拆開，避免把 1D 與 14D 直接當成同一持有期</span>
+              <span>日齡分段只含 D+1 可進場資料</span>
+            </div>
+            <div class="ai-age-grid">${ageItems}</div>
+          </div>
+          <p class="ai-interim-footnote">暫時排除：${escapeHtml(exclusionText)}${escapeHtml(delayedText)}${escapeHtml(mismatchText)}。這是未扣成本的價格追蹤，不是帳戶損益，也不能取代正式 20D 驗證。</p>
+        </section>
       `;
     }
 
@@ -35013,10 +35848,12 @@
       const windowReached = cohort.observationWindowReached === true;
       const pendingLabel = windowReached ? "等待正式驗證" : "等待 20D 成熟";
       return `
+        ${renderAiScopeTabs()}
+        ${renderAiInterimTracking(cohort)}
         <section class="ai-await-card" aria-label="${pendingLabel}">
           <div class="ai-await-main">
-            <span class="ai-perf-eyebrow">FORMAL 20D VALIDATION</span>
-            <strong>${cohort.maturedPickCount || 0}/${cohort.pickCount || 0} 已成熟</strong>
+            <span class="ai-perf-eyebrow">正式 20D 驗證</span>
+            <strong>${cohort.maturedPickCount || 0}/${cohort.pickCount || 0}</strong>
             <p>${escapeHtml(cohort.qaMessage || "正式樣本尚未成熟，因此不顯示績效圖。")}</p>
             <div class="ai-progress-label">
               <span>目前最長觀察路徑</span>
@@ -35027,8 +35864,8 @@
             </div>
           </div>
           <div class="ai-await-side">
-            <strong>${windowReached ? "觀察窗已達 20D，但正式驗證尚未完成。" : "現在能確認的是資料累積進度，不是策略績效。"}</strong>
-            <p>詳細頁中的即時漲跌仍可用來核對路徑，但不會混入正式 20D 分母，也不會被解讀成照著買的帳戶盈虧。</p>
+            <strong>${windowReached ? "觀察窗已達 20D，但正式驗證尚未完成。" : "暫時表現可以先看；策略判讀仍等固定 20D。"}</strong>
+            <p>上方暫時值的觀察天數不同，只用來回答目前走勢；正式勝率、右尾命中與 baseline 比較仍由 validation artifact 決定。</p>
             <button class="ai-detail-link" type="button" data-open-ai-detail>前往詳細追蹤</button>
           </div>
         </section>
@@ -35174,8 +36011,8 @@
           <div class="ai-perf-toolbar">
             <div class="ai-perf-heading">
               <span class="ai-perf-eyebrow">LOCKED EXPERIMENT · PRICE RETURN</span>
-              <h3>AI 選股正式績效</h3>
-              <p>每個百分比都能回到分子／分母；不同模型、prompt 與執行模式不混算。</p>
+              <h3>AI 選股績效</h3>
+              <p>暫時追蹤與正式 20D 分開呈現；不同模型、prompt 與執行模式不混算。</p>
             </div>
             <label class="ai-cohort-field">
               <span>實驗 cohort</span>
