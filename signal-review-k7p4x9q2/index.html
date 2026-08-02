@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>TWSTOCK Signal Review - 20260801</title>
+  <title>TWSTOCK Signal Review - 20260802</title>
   <style>
     :root {
       color-scheme: light;
@@ -1350,6 +1350,188 @@
       font-weight: 900;
       line-height: 1.3;
       white-space: nowrap;
+    }
+
+    .ai-strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .ai-strategy-card {
+      min-width: 0;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: #fffdf8;
+    }
+
+    .ai-strategy-card:first-child {
+      border-color: #a9bfd3;
+      box-shadow: inset 0 3px 0 var(--navy);
+    }
+
+    .ai-strategy-title {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .ai-strategy-title strong {
+      display: block;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 950;
+      line-height: 1.3;
+    }
+
+    .ai-strategy-title span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .ai-strategy-unit {
+      flex: 0 0 auto;
+      padding: 4px 7px;
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .ai-strategy-return {
+      margin: 13px 0 12px;
+    }
+
+    .ai-strategy-return span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+    }
+
+    .ai-strategy-return strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink);
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 950;
+      letter-spacing: -0.045em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ai-strategy-return strong.positive { color: var(--green); }
+    .ai-strategy-return strong.negative { color: var(--red); }
+
+    .ai-strategy-ledger {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line-2);
+    }
+
+    .ai-strategy-ledger div {
+      min-width: 0;
+      padding: 10px 9px 0;
+      border-left: 1px solid var(--line-2);
+    }
+
+    .ai-strategy-ledger div:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    .ai-strategy-ledger span {
+      display: block;
+      color: var(--soft);
+      font-size: 9px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .ai-strategy-ledger strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 950;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ai-strategy-ledger strong.positive { color: var(--green); }
+    .ai-strategy-ledger strong.negative { color: var(--red); }
+
+    .ai-repeat-performance {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      margin-top: 10px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+    }
+
+    .ai-repeat-performance span,
+    .ai-repeat-performance small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .ai-repeat-performance span {
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .ai-repeat-performance strong {
+      color: var(--ink);
+      font-size: 21px;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .ai-repeat-performance strong.positive { color: var(--green); }
+    .ai-repeat-performance strong.negative { color: var(--red); }
+
+    .ai-interim-diagnostics {
+      border-top-width: 1px;
+    }
+
+    .ai-diagnostic-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .ai-diagnostic-head h4 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .ai-diagnostic-head p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
     }
 
     .ai-interim-kpis {
@@ -3142,9 +3324,32 @@
       .ai-perf-toolbar,
       .ai-perf-section-head,
       .ai-interim-head,
+      .ai-diagnostic-head,
       .ai-verdict-card {
         align-items: stretch;
         flex-direction: column;
+      }
+
+      .ai-strategy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-strategy-title {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .ai-strategy-ledger {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ai-strategy-ledger div:nth-child(3) {
+        grid-column: 1 / -1;
+        margin-top: 8px;
+        padding-top: 8px;
+        padding-left: 0;
+        border-left: 0;
+        border-top: 1px solid var(--line-2);
       }
 
       .ai-interim-kpis {
@@ -3347,7 +3552,7 @@
         </div>
       </div>
       <div class="status-stack" aria-label="資料狀態">
-        <span class="pill">報表產生 <strong>2026/08/01</strong></span>
+        <span class="pill">報表產生 <strong>2026/08/02</strong></span>
         <span class="pill">入選資料至 <strong>2026/08/01</strong></span>
         <span class="pill">價格追蹤至 <strong>2026/07/31</strong></span>
         <span class="pill">目前為 <strong>Signal Log 真實資料</strong></span>
@@ -32882,7 +33087,7 @@
 
     const aiPerformance = {
       "schemaVersion": "ai_performance_summary_v2",
-      "asOf": "2026/08/01",
+      "asOf": "2026/08/02",
       "defaultCohortId": "dc85ac66dfae10d9::forward_validation",
       "cohorts": [
             {
@@ -32934,6 +33139,15 @@
                                           "numerator": 15,
                                           "denominator": 42,
                                           "rate": 35.71
+                                    },
+                                    "equalNotional": {
+                                          "notionalPerPick": 10000.0,
+                                          "positionCount": 42,
+                                          "investedAmount": 420000.0,
+                                          "pnlAmount": -47889.98,
+                                          "currentValueAmount": 372110.02,
+                                          "returnPct": -11.4,
+                                          "returnPointsSum": -478.9
                                     },
                                     "medianReturn": -10.8,
                                     "currentThresholds": {
@@ -33022,6 +33236,15 @@
                                           "denominator": 15,
                                           "rate": 13.33
                                     },
+                                    "equalNotional": {
+                                          "notionalPerPick": 10000.0,
+                                          "positionCount": 15,
+                                          "investedAmount": 150000.0,
+                                          "pnlAmount": -20689.59,
+                                          "currentValueAmount": 129310.41,
+                                          "returnPct": -13.79,
+                                          "returnPointsSum": -206.9
+                                    },
                                     "medianReturn": -13.34,
                                     "currentThresholds": {
                                           "10": {
@@ -33108,6 +33331,15 @@
                                           "numerator": 13,
                                           "denominator": 27,
                                           "rate": 48.15
+                                    },
+                                    "equalNotional": {
+                                          "notionalPerPick": 10000.0,
+                                          "positionCount": 27,
+                                          "investedAmount": 270000.0,
+                                          "pnlAmount": -27200.39,
+                                          "currentValueAmount": 242799.61,
+                                          "returnPct": -10.07,
+                                          "returnPointsSum": -272.0
                                     },
                                     "medianReturn": -10.21,
                                     "currentThresholds": {
@@ -34074,6 +34306,7 @@
                         "priceSource": "Yahoo raw OHLC snapshot",
                         "costs": "未扣手續費、交易稅、滑價與股息",
                         "accountPnl": false,
+                        "equalNotional": "每個可計算 pick 等額投入 NT$10,000；總損益除以總投入即為組合報酬",
                         "interim": "暫時值只用 Signal Log 的 buyable_open_price 與 path_latest_close 重新計算；不使用 next-open 或 signal basis 補位"
                   }
             },
@@ -34126,6 +34359,15 @@
                                           "numerator": 2,
                                           "denominator": 27,
                                           "rate": 7.41
+                                    },
+                                    "equalNotional": {
+                                          "notionalPerPick": 10000.0,
+                                          "positionCount": 27,
+                                          "investedAmount": 270000.0,
+                                          "pnlAmount": -53901.49,
+                                          "currentValueAmount": 216098.51,
+                                          "returnPct": -19.96,
+                                          "returnPointsSum": -539.01
                                     },
                                     "medianReturn": -21.15,
                                     "currentThresholds": {
@@ -34208,6 +34450,15 @@
                                           "denominator": 14,
                                           "rate": 0.0
                                     },
+                                    "equalNotional": {
+                                          "notionalPerPick": 10000.0,
+                                          "positionCount": 14,
+                                          "investedAmount": 140000.0,
+                                          "pnlAmount": -32568.04,
+                                          "currentValueAmount": 107431.96,
+                                          "returnPct": -23.26,
+                                          "returnPointsSum": -325.68
+                                    },
                                     "medianReturn": -25.93,
                                     "currentThresholds": {
                                           "10": {
@@ -34288,6 +34539,15 @@
                                           "numerator": 2,
                                           "denominator": 13,
                                           "rate": 15.38
+                                    },
+                                    "equalNotional": {
+                                          "notionalPerPick": 10000.0,
+                                          "positionCount": 13,
+                                          "investedAmount": 130000.0,
+                                          "pnlAmount": -21333.45,
+                                          "currentValueAmount": 108666.55,
+                                          "returnPct": -16.41,
+                                          "returnPointsSum": -213.33
                                     },
                                     "medianReturn": -19.59,
                                     "currentThresholds": {
@@ -35248,6 +35508,7 @@
                         "priceSource": "Yahoo raw OHLC snapshot",
                         "costs": "未扣手續費、交易稅、滑價與股息",
                         "accountPnl": false,
+                        "equalNotional": "每個可計算 pick 等額投入 NT$10,000；總損益除以總投入即為組合報酬",
                         "interim": "暫時值只用 Signal Log 的 buyable_open_price 與 path_latest_close 重新計算；不使用 next-open 或 signal basis 補位"
                   }
             }
@@ -35684,6 +35945,113 @@
       return hasNumber(value) ? Math.max(0, Math.min(100, Number(value))) : 0;
     }
 
+    function formatTwd(value, signed = false) {
+      if (!hasNumber(value)) return "—";
+      const numeric = Math.round(Number(value));
+      const sign = numeric < 0 ? "-" : (signed && numeric > 0 ? "+" : "");
+      return `${sign}NT$${Math.abs(numeric).toLocaleString("en-US")}`;
+    }
+
+    function aiPortfolioForScope(scope, formal = false) {
+      if (!formal) return scope?.equalNotional || {};
+      const ai = scope?.ai || {};
+      const positionCount = Number(ai.count) || 0;
+      const returnPct = hasNumber(ai.averageReturn) ? Number(ai.averageReturn) : null;
+      const notionalPerPick = 10000;
+      const investedAmount = positionCount * notionalPerPick;
+      const pnlAmount = returnPct === null ? null : investedAmount * returnPct / 100;
+      return {
+        notionalPerPick,
+        positionCount,
+        investedAmount,
+        pnlAmount,
+        currentValueAmount: pnlAmount === null ? null : investedAmount + pnlAmount,
+        returnPct
+      };
+    }
+
+    function renderAiStrategyCard({ title, description, unitLabel, scope, formal = false }) {
+      const portfolio = aiPortfolioForScope(scope, formal);
+      const eligible = Number(portfolio.positionCount) || 0;
+      const total = formal ? eligible : (Number(scope?.totalPickCount) || 0);
+      const returnPct = hasNumber(portfolio.returnPct) ? Number(portfolio.returnPct) : null;
+      const coverage = formal ? `${eligible} 筆成熟` : `${eligible}/${total} 筆`;
+      return `
+        <article class="ai-strategy-card">
+          <div class="ai-strategy-title">
+            <div>
+              <strong>${escapeHtml(title)}</strong>
+              <span>${escapeHtml(description)}</span>
+            </div>
+            <span class="ai-strategy-unit">${escapeHtml(unitLabel)}</span>
+          </div>
+          <div class="ai-strategy-return">
+            <span>${formal ? "等額組合固定 20D 報酬" : "等額組合目前報酬"}</span>
+            <strong class="${returnPct === null ? "" : classFor(returnPct)}">${formalPct(returnPct)}</strong>
+          </div>
+          <div class="ai-strategy-ledger">
+            <div><span>投入示意</span><strong>${formatTwd(eligible ? portfolio.investedAmount : null)}</strong></div>
+            <div><span>${formal ? "20D 損益" : "目前損益"}</span><strong class="${returnPct === null ? "" : classFor(returnPct)}">${formatTwd(eligible ? portfolio.pnlAmount : null, true)}</strong></div>
+            <div><span>計算分母</span><strong>${escapeHtml(coverage)}</strong></div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderAiStrategyOverview(cohort, formal = false) {
+      const interim = cohort.interimTracking || {};
+      const scopes = formal ? (cohort.scopes || {}) : (interim.scopes || {});
+      const decision = scopes.decision || {};
+      const first = scopes.first_unique || {};
+      const repeat = scopes.repeat_within_20d || {};
+      const repeatPortfolio = aiPortfolioForScope(repeat, formal);
+      const repeatEligible = Number(repeatPortfolio.positionCount) || 0;
+      const repeatTotal = formal ? repeatEligible : (Number(repeat.totalPickCount) || 0);
+      const repeatReturn = hasNumber(repeatPortfolio.returnPct) ? Number(repeatPortfolio.returnPct) : null;
+      const minDays = hasNumber(decision.minObservedDays) ? Number(decision.minObservedDays) : null;
+      const maxDays = hasNumber(decision.maxObservedDays) ? Number(decision.maxObservedDays) : null;
+      const observationLabel = formal
+        ? "固定 20D"
+        : (minDays !== null && maxDays !== null ? `${minDays}–${maxDays}D 不同觀察期` : "觀察期持續累積");
+      const dataThrough = decision.dataThrough || cohort.dataThrough || aiPerformance.asOf || "—";
+      return `
+        <section class="ai-interim-card" aria-label="${formal ? "正式 20D 等額組合報酬" : "目前等額組合報酬"}">
+          <div class="ai-interim-head">
+            <div>
+              <span class="ai-perf-eyebrow">${formal ? "FORMAL 20D · EQUAL NOTIONAL" : "LIVE TRACKING · EQUAL NOTIONAL"}</span>
+              <h3>${formal ? "固定 20D，照著買的整體結果" : "照著買，目前整體賺賠多少"}</h3>
+              <p>${formal ? "每筆成熟 pick 投入相同金額，直接比較兩種重複處理方式。" : `資料截至 ${escapeHtml(dataThrough)}；每個可計算 pick 都投入相同金額，直接回答整體賺賠。`}</p>
+            </div>
+            <span class="ai-interim-badge">${escapeHtml(observationLabel)}</span>
+          </div>
+          <div class="ai-strategy-grid">
+            ${renderAiStrategyCard({
+              title: "每次出現都買",
+              description: "重複入選會再投入一份",
+              unitLabel: "每筆 NT$10,000 等額換算",
+              scope: decision,
+              formal
+            })}
+            ${renderAiStrategyCard({
+              title: "每檔只買一次",
+              description: "同一股票後續再出現時忽略",
+              unitLabel: "每檔 NT$10,000 等額換算",
+              scope: first,
+              formal
+            })}
+          </div>
+          <div class="ai-repeat-performance">
+            <div>
+              <span>20D 內重複單獨表現</span>
+              <small>${repeatEligible}/${repeatTotal} 筆可計算；用來看短期重複訊號是拉高還是拖累整體結果。</small>
+            </div>
+            <strong class="${repeatReturn === null ? "" : classFor(repeatReturn)}">${formalPct(repeatReturn)}</strong>
+          </div>
+          <p class="ai-interim-footnote">每筆 NT$10,000 只是等額換算單位；報酬未扣手續費、交易稅與滑價，也不是實際帳戶損益。</p>
+        </section>
+      `;
+    }
+
     function renderAiPerformanceMeta(cohort) {
       const items = [
         { label: "Cohort", value: cohort.cohortLabel || cohort.modelName || "—" },
@@ -35737,6 +36105,7 @@
             <div class="ai-method-item"><strong>20D 報酬</strong>${escapeHtml(method.returnBasis || "—")}</div>
             <div class="ai-method-item"><strong>價格來源</strong>${escapeHtml(method.priceSource || "—")}</div>
             <div class="ai-method-item"><strong>交易成本</strong>${escapeHtml(method.costs || "—")}</div>
+            <div class="ai-method-item"><strong>等額組合</strong>${escapeHtml(method.equalNotional || "每個可計算 pick 投入相同金額")}</div>
             <div class="ai-method-item"><strong>排除與 QA</strong>${escapeHtml(blockedText)}</div>
             <div class="ai-method-item"><strong>暫時追蹤</strong>${escapeHtml(method.interim || interim.basis || "—")}</div>
             <div class="ai-method-item"><strong>暫時分母</strong>${escapeHtml(interimExclusions)}</div>
@@ -35753,19 +36122,20 @@
       const total = Number(scope.totalPickCount) || 0;
       const eligible = Number(scope.eligiblePickCount) || 0;
       const excluded = Number(scope.excludedPickCount) || 0;
+      const overview = renderAiStrategyOverview(cohort, false);
       if (!eligible) {
         const message = total
           ? `這個視角目前 ${total} 筆都還沒有一致的可成交近似價與最新收盤價。`
           : "這個視角目前沒有可追蹤的 picks。";
         return `
-          <section class="ai-interim-card">
-            <div class="ai-interim-head">
+          ${overview}
+          <section class="ai-interim-card ai-interim-diagnostics">
+            <div class="ai-diagnostic-head">
               <div>
-                <span class="ai-perf-eyebrow">LIVE TRACKING · PROVISIONAL</span>
-                <h3>截至目前的暫時表現</h3>
+                <h4>分布、勝率與命中（輔助）</h4>
                 <p>${escapeHtml(message)}不會改用 next-open 或 signal basis 補位。</p>
               </div>
-              <span class="ai-interim-badge">非正式 20D 結果</span>
+              ${renderAiScopeTabs()}
             </div>
           </section>
         `;
@@ -35789,11 +36159,6 @@
           <span>${item.count ? `正報酬 ${formalRate(item.positiveRate)}` : "尚無同日齡樣本"}</span>
         </div>
       `).join("");
-      const minDays = hasNumber(scope.minObservedDays) ? Number(scope.minObservedDays) : null;
-      const maxDays = hasNumber(scope.maxObservedDays) ? Number(scope.maxObservedDays) : null;
-      const observationLabel = minDays !== null && maxDays !== null
-        ? `${minDays}–${maxDays}D 不同觀察期`
-        : "觀察期持續累積";
       const exclusionText = Array.isArray(scope.exclusions) && scope.exclusions.length
         ? scope.exclusions.map((item) => `${item.label} ${item.count} 筆`).join("；")
         : "目前沒有排除項目";
@@ -35804,25 +36169,25 @@
         ? `；延後進場 ${scope.delayedEntryCount} 筆保留在總覽，但不放入 D+1 日齡分段`
         : "";
       return `
-        <section class="ai-interim-card">
-          <div class="ai-interim-head">
+        ${overview}
+        <section class="ai-interim-card ai-interim-diagnostics">
+          <div class="ai-diagnostic-head">
             <div>
-              <span class="ai-perf-eyebrow">LIVE TRACKING · PROVISIONAL</span>
-              <h3>截至目前的暫時表現</h3>
-              <p>資料截至 ${escapeHtml(scope.dataThrough || cohort.dataThrough || "—")}；每筆 pick 等權觀察，數值會隨最新收盤價改變。</p>
+              <h4>分布、勝率與命中（輔助）</h4>
+              <p>切換只影響下方診斷；上方兩種整體報酬始終並排，數值會隨最新收盤價改變。</p>
             </div>
-            <span class="ai-interim-badge">${escapeHtml(observationLabel)}</span>
+            ${renderAiScopeTabs()}
           </div>
           <div class="ai-interim-kpis">
-            <div class="ai-interim-kpi">
-              <span>目前報酬中位數</span>
-              <strong class="${classFor(Number(scope.medianReturn) || 0)}">${formalPct(scope.medianReturn)}</strong>
-              <small>比平均數較不容易被極端值拉動</small>
-            </div>
             <div class="ai-interim-kpi">
               <span>目前正報酬率</span>
               <strong>${formalRate(positiveRate.rate)}</strong>
               <small>${positiveRate.numerator || 0}/${positiveRate.denominator || eligible} 筆目前高於進場價</small>
+            </div>
+            <div class="ai-interim-kpi">
+              <span>目前報酬中位數</span>
+              <strong class="${classFor(Number(scope.medianReturn) || 0)}">${formalPct(scope.medianReturn)}</strong>
+              <small>描述典型一筆，不代表整體投入報酬</small>
             </div>
             <div class="ai-interim-kpi">
               <span>目前可計算</span>
@@ -35838,7 +36203,7 @@
             </div>
             <div class="ai-age-grid">${ageItems}</div>
           </div>
-          <p class="ai-interim-footnote">暫時排除：${escapeHtml(exclusionText)}${escapeHtml(delayedText)}${escapeHtml(mismatchText)}。這是未扣成本的價格追蹤，不是帳戶損益，也不能取代正式 20D 驗證。</p>
+          <p class="ai-interim-footnote">暫時排除：${escapeHtml(exclusionText)}${escapeHtml(delayedText)}${escapeHtml(mismatchText)}。上方是等額投入的價格報酬換算，不是實際帳戶，也不能取代正式 20D 驗證。</p>
         </section>
       `;
     }
@@ -35848,7 +36213,6 @@
       const windowReached = cohort.observationWindowReached === true;
       const pendingLabel = windowReached ? "等待正式驗證" : "等待 20D 成熟";
       return `
-        ${renderAiScopeTabs()}
         ${renderAiInterimTracking(cohort)}
         <section class="ai-await-card" aria-label="${pendingLabel}">
           <div class="ai-await-main">
@@ -35928,6 +36292,7 @@
       const stability = cohort.stability || {};
       if (!ai.count) {
         return `
+          ${renderAiStrategyOverview(cohort, true)}
           ${renderAiScopeTabs()}
           <div class="empty">這個視角目前沒有成熟樣本；請改看其他重複入選視角。</div>
           ${renderAiMethodDetails(cohort)}
@@ -35940,6 +36305,7 @@
         { label: "負報酬中位數", value: formalPct(ai.typicalLoss) }
       ];
       return `
+        ${renderAiStrategyOverview(cohort, true)}
         ${renderAiScopeTabs()}
         <section class="ai-verdict-card">
           <div>
